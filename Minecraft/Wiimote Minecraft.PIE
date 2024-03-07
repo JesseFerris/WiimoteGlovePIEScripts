@@ -16,7 +16,8 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Set GlovePIE Frame Rate to Wiimote IR Camera Hz, and Disable LEDs
+// Debug Info, Set GlovePIE Frame Rate to Wiimote IR Camera Hz, and Disable LEDs
+Debug = " PointerX: " +var.PointerX+ "   PointerY: " +var.PointerY+ "   ModifyerX: " +var.ModifyerX+ "   ModifyerY: " +var.ModifyerY
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
 
@@ -46,16 +47,16 @@ If Helddown(Wiimote.PointerVisible, 750ms)
 Endif
 
 // Keyboard & Mouse Button Mapping
-Key.F                =    Wiimote.Up
-Key.R                =    Wiimote.Down
-Key.Q                =    Wiimote.Left
-Key.E                =    Wiimote.Right
+Key.F5               =    Wiimote.Up
+Key.Q                =    Wiimote.Down
+Key.F                =    Wiimote.Left
+Key.L                =    Wiimote.Right
 
 Mouse.RightButton    =    Wiimote.A
 Mouse.LeftButton     =    Wiimote.B
 
 Mouse.WheelDown      =    Wiimote.Plus
-Key.Esc              =    Wiimote.Home
+Key.E                =    Wiimote.Home
 Mouse.WheelUp        =    Wiimote.Minus
 
 Key.1                =    Wiimote.One
@@ -66,7 +67,6 @@ Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
-Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65
-Key.Alt              =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
-Key.Ctrl             =    Wiimote.Nunchuk.CButton
+Key.Ctrl             =    Wiimote.Nunchuk.JoyY < -0.65
+Key.Shift            =    Wiimote.Nunchuk.CButton
 Key.Space            =    Wiimote.Nunchuk.ZButton
