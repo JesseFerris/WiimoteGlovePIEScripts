@@ -61,9 +61,9 @@ Mouse.WheelUp        =    Wiimote.Minus
 Key.1                =    Wiimote.One
 Key.2                =    Wiimote.Two
 
-Key.W                =    Wiimote.Nunchuk.JoyY < 0.15
+Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
-Key.S                =    Wiimote.Nunchuk.JoyY > -0.15
+Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
 Key.Ctrl             =    Wiimote.Nunchuk.JoyY < -0.65
