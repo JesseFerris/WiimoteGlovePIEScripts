@@ -16,11 +16,12 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Set GlovePIE Frame Rate to Wiimote IR camera Hz, and disable LEDs
+// Debug Info, Set GlovePIE Frame Rate to Wiimote IR Camera Hz, and Disable LEDs
+Debug = " PointerX: " +var.PointerX+ "   PointerY: " +var.PointerY+ "   ModifyerX: " +var.ModifyerX+ "   ModifyerY: " +var.ModifyerY
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
 
-// Imaginary Box Size
+// Imaginary Box
 var.BoxWidth = 20
 var.BoxHeight = 15
 
