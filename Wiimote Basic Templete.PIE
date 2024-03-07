@@ -19,7 +19,7 @@
 // Set GlovePIE Frame Rate to Wiimote IR camera Hz, and disable LEDs
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
-Debug = Key.Ctrl
+
 // Imaginary Box Size
 var.BoxWidth = 20
 var.BoxHeight = 15
