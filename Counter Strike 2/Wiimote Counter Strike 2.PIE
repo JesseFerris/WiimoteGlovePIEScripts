@@ -1,0 +1,72 @@
+﻿/*
+    Wiimote GlovePIE Script - Basic Template.
+    Copyright (C) 2024  Jesse Ferris
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+// Set GlovePIE Frame Rate to Wiimote IR Camera Hz, and Disable LEDs
+Pie.RealFrameRate = 100Hz
+Wiimote.Leds = 0
+
+// Imaginary Box
+var.BoxWidth = 20
+var.BoxHeight = 15
+
+// Sensitivity Adjustments
+var.Sensitivity = 45
+var.AutoTurnSpeed = 100
+
+// Pointer Tracking, Auto-turn, Mouse Output
+If Helddown(Wiimote.PointerVisible, 750ms)
+
+    var.PointerX = (Wiimote.PointerX - 1/2) * 100
+    var.PointerY = (Wiimote.PointerY - 1/2) * 100
+
+    var.ModifyerX = Delta(var.PointerX) * var.Sensitivity
+    var.ModifyerY = Delta(var.PointerY) * var.Sensitivity
+                                                                                    
+    If abs(var.PointerX) > var.BoxWidth then var.ModifyerX += ((abs(var.PointerX) - var.BoxWidth) / var.PointerX) * var.AutoTurnSpeed
+    If abs(var.PointerY) > var.BoxHeight then var.ModifyerY += ((abs(var.PointerY) - var.BoxHeight) / var.PointerY) * var.AutoTurnSpeed
+
+    Mouse.DirectInputX += var.ModifyerX
+    Mouse.DirectInputY += var.ModifyerY
+
+Endif
+
+// Keyboard & Mouse Button Mapping
+Key.G                =    Wiimote.Up
+Key.E                =    Wiimote.Down
+Key.R                =    Wiimote.Left
+Key.Q                =    Wiimote.Right
+
+Mouse.RightButton    =    Wiimote.A
+Mouse.LeftButton     =    Wiimote.B
+
+Mouse.WheelDown      =    Wiimote.Plus
+Key.B                =    Wiimote.Home
+Key.Tab              =    Helddown(Wiimote.Home,250ms)
+Mouse.WheelUp        =    Wiimote.Minus
+
+Key.F3               =    Wiimote.One
+Key.F4               =    Wiimote.Two
+
+Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
+Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
+Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
+Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
+
+Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
+Key.Ctrl             =    Wiimote.Nunchuk.CButton
+Key.Space            =    Wiimote.Nunchuk.ZButton
