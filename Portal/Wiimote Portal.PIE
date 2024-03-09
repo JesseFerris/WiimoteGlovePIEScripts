@@ -16,7 +16,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// Set GlovePIE Frame Rate to Wiimote IR Camera Hz, and Disable LEDs
+// Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
 
@@ -57,8 +57,8 @@ Key.F6               =    Wiimote.One
 Key.F9               =    Wiimote.Two
 
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
-Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
+Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
 Key.Ctrl             =    Wiimote.Nunchuk.CButton
