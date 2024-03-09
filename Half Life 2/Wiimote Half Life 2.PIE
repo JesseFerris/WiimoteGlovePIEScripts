@@ -20,7 +20,7 @@
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
 
-// Imaginary Box
+// Imaginary Box Size
 var.BoxWidth = 20
 var.BoxHeight = 15
 
@@ -47,8 +47,8 @@ Endif
 
 // Keyboard & Mouse Button Mapping
 Key.Q                =    Wiimote.Up
-Key.E                =    Wiimote.Down
-Key.R                =    Wiimote.Left
+Key.R                =    Wiimote.Down
+Key.E                =    Wiimote.Left
 Key.F                =    Wiimote.Right
 
 Mouse.RightButton    =    Wiimote.A
