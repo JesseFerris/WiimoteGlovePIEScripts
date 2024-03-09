@@ -47,8 +47,8 @@ Endif
 
 // Keyboard & Mouse Button Mapping
 Key.G                =    Wiimote.Up
-Key.E                =    Wiimote.Down
-Key.R                =    Wiimote.Left
+Key.R                =    Wiimote.Down
+Key.E                =    Wiimote.Left
 Key.F                =    Wiimote.Right
 
 Mouse.RightButton    =    Wiimote.A
