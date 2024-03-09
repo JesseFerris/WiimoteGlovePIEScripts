@@ -43,6 +43,9 @@ If Helddown(Wiimote.PointerVisible, 750ms)
     Mouse.DirectInputX += var.ModifyerX
     Mouse.DirectInputY += var.ModifyerY
 
+Else
+    var.XMod = 0
+    var.YMod = 0
 Endif
 
 // Keyboard & Mouse Button Mapping
