@@ -1,0 +1,88 @@
+﻿/*
+    Wiimote GlovePIE Script - Basic Template.
+    Copyright (C) 2024  Jesse Ferris
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+// Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
+Pie.RealFrameRate = 100Hz
+Wiimote.Leds = 0
+
+// Imaginary Box Size
+var.BoxWidth = 20
+var.BoxHeight = 15
+
+// Sensitivity Adjustments
+var.Sensitivity = 10
+var.AutoTurnSpeed = 35
+
+// Pointer Tracking, Auto-turn, Mouse Output
+If Helddown(Wiimote.PointerVisible, 750ms)
+
+    var.PointerX = (Wiimote.PointerX - 1/2) * 100
+    var.PointerY = (Wiimote.PointerY - 1/2) * 100
+
+    var.ModifyerX = Delta(var.PointerX) * var.Sensitivity
+    var.ModifyerY = Delta(var.PointerY) * var.Sensitivity
+                                                                                    
+    If abs(var.PointerX) > var.BoxWidth then var.ModifyerX += ((abs(var.PointerX) - var.BoxWidth) / var.PointerX) * var.AutoTurnSpeed
+    If abs(var.PointerY) > var.BoxHeight then var.ModifyerY += ((abs(var.PointerY) - var.BoxHeight) / var.PointerY) * var.AutoTurnSpeed
+
+    Mouse.DirectInputX += var.ModifyerX
+    Mouse.DirectInputY += var.ModifyerY
+
+Else
+    var.XMod = 0
+    var.YMod = 0
+Endif
+
+// Keyboard & Mouse Button Mapping
+Key.B                =    Wiimote.Up
+Key.R                =    Keepdown(Wiimote.Down, 250ms) and Helddown(not Wiimote.Down, 100ms)
+Key.Alt              =    Keepdown(not Wiimote.Down, 250ms) and Helddown(Wiimote.Down, 25ms)
+Key.F                =    Helddown(Wiimote.Down, 150ms)
+Key.Q                =    Wiimote.Left
+Key.E                =    Wiimote.Right
+
+Mouse.RightButton    =    Keepdown(Wiimote.A, 150ms) but not Wiimote.A
+Mouse.LeftButton     =    Wiimote.B
+
+Mouse.WheelUp        =    Helddown(Wiimote.Plus, 250ms) or (Keepdown(Wiimote.Plus, 250ms) and not Wiimote.Plus)
+Key.Left             =    Helddown(Wiimote.Plus, 250ms)
+Key.M                =    Keepdown(Wiimote.Home, 250ms) and Helddown(not Wiimote.Home, 100ms)
+Key.CapsLock         =    Keepdown(not Wiimote.Home, 250ms) and Helddown(Wiimote.Home, 25ms)
+Key.X                =    Helddown(Wiimote.Plus, 150ms) or Helddown(Wiimote.Minus, 150ms)
+Key.T                =    Helddown(Wiimote.Home, 150ms)
+Key.Right            =    Helddown(Wiimote.Minus, 250ms)
+Mouse.WheelDown      =    Helddown(Wiimote.Minus, 250ms) or (Keepdown(Wiimote.Minus, 250ms) and not Wiimote.Minus)
+
+Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)
+Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
+Key.V                =    Helddown(Wiimote.One, 150ms)
+Key.X                =    Helddown(Wiimote.One and Wiimote.Two, 250ms)
+Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.Two, 100ms)
+Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
+Key.C                =    Helddown(Wiimote.Two, 150ms)
+
+Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
+Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
+Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
+Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
+
+Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65
+Key.Shift            =    Wiimote.A and (Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 200ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 200ms))
+Key.Z                =    Wiimote.Nunchuk.CButton
+Key.Space            =    Helddown(Wiimote.Nunchuk.ZButton, 150ms)
+Key.Ctrl             =    Keepdown(Wiimote.Nunchuk.ZButton, 250ms) and not Wiimote.Nunchuk.Z
