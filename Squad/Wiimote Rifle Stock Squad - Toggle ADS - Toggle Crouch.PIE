@@ -55,9 +55,9 @@ Key.Z                =    Helddown(Wiimote.Down, 150ms)
 Key.Q                =    Wiimote.Left
 Key.E                =    Wiimote.Right
 
-Mouse.RightButton    =    (Keepdown(Wiimote.A, 150ms) but not Wiimote.A) or Helddown(Wiimote.A and Wiimote.B, 500ms)
+Mouse.RightButton    =    ((Keepdown(Wiimote.A, 150ms) but not Wiimote.A) and not Wiimote.B) or Helddown(Wiimote.A and Wiimote.B, 500ms)
 Key.F                =    Wiimote.A and Wiimote.B
-Key.C                =    Wiimote.B
+Key.C                =    Helddown(Wiimote.B, 250ms) and Helddown(not Wiimote.A, 500ms)
 
 Mouse.WheelUp        =    Helddown(Wiimote.Plus, 250ms) or (Keepdown(Wiimote.Plus, 150ms) and not Wiimote.Plus)
 Key.Left             =    Helddown(Wiimote.Plus, 250ms)
@@ -86,3 +86,17 @@ Key.Shift            =    ((Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 15ms) and
 Mouse.MiddleButton   =    Keepdown(Wiimote.Nunchuk.C, 250ms) and not Wiimote.Nunchuk.C
 Key.R                =    Helddown(Wiimote.Nunchuk.C, 150ms)
 Mouse.LeftButton     =    Wiimote.Nunchuk.Z
+
+If (Wiimote.B but not Helddown(Wiimote.B,10ms)) then var.Counter += 1
+If (Helddown(Wiimote.B, 250ms)) or (Helddown(not Wiimote.B, 500ms) and var.Counter > 0) then var.Counter = 0
+
+Key.F1  = (var.Counter = 1)  and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 1 time.
+Key.F2  = (var.Counter = 2)  and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 2 times.
+Key.F3  = (var.Counter = 3)  and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 3 times.
+Key.F4  = (var.Counter = 4)  and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 4 times.
+Key.F5  = (var.Counter = 5)  and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 5 times.
+Key.F6  = (var.Counter = 6)  and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 6 times.
+Key.F7  = (var.Counter = 7)  and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 7 times.
+Key.F8  = (var.Counter = 8)  and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 8 times.
+Key.F9  = (var.Counter = 9)  and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 9 times.
+Key.F10 = (var.Counter = 10) and Helddown(not Wiimote.B, 250ms) // Wiimote B pressed 10 times.
