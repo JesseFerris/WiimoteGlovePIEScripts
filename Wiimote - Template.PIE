@@ -67,7 +67,7 @@ Mouse.WheelDown      =    Wiimote.Plus
 Key.Esc              =    Wiimote.Home
 Mouse.WheelUp        =    Wiimote.Minus
 
-Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)	// Button One pressed 1x
+Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms) // Button One pressed 1x
 Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms) // Button One pressed 2x
 Key.5                =    Helddown(Wiimote.One, 150ms) // Button One held 150ms
 
