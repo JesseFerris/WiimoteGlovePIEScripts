@@ -1,5 +1,5 @@
 ﻿/*
-    Wiimote GlovePIE Script - Basic Template.
+    GlovePIE Script - Wiimote - Half Life 2.
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,12 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+/*
+	How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
+	Description: Emulates Mouse and Keyboard from Wiimote input.
+	Game Settings: Default Bindings.
+*/
+
 // Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
@@ -25,8 +31,8 @@ var.BoxWidth = 20
 var.BoxHeight = 15
 
 // Sensitivity Adjustments
-var.Sensitivity = 20
-var.AutoTurnSpeed = 35
+var.Sensitivity = 15
+var.AutoTurnSpeed = 30
 
 // Pointer Tracking, Auto-turn, Mouse Output
 If Helddown(Wiimote.PointerVisible, 750ms)
@@ -48,21 +54,32 @@ Else
     var.YMod = 0
 Endif
 
-// Keyboard & Mouse Button Mapping
-Key.E                =    Wiimote.Down
+// Button Mapping
+Key.Q                =    Wiimote.Up
+Key.R                =    Wiimote.Down
+Key.E                =    Wiimote.Left
+Key.F                =    Wiimote.Right
 
 Mouse.RightButton    =    Wiimote.A
 Mouse.LeftButton     =    Wiimote.B
 
+Mouse.WheelDown      =    Wiimote.Plus
 Key.Esc              =    Wiimote.Home
+Mouse.WheelUp        =    Wiimote.Minus
 
-Key.F6               =    Wiimote.One
-Key.F9               =    Wiimote.Two
+Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)
+Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
+Key.5                =    Helddown(Wiimote.One, 150ms)
+
+Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.Two, 100ms)
+Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
+Key.6                =    Helddown(Wiimote.Two, 150ms)
 
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
-Key.Ctrl             =    Wiimote.Nunchuk.CButton
+Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
+Key.C                =    Wiimote.Nunchuk.CButton
 Key.Space            =    Wiimote.Nunchuk.ZButton

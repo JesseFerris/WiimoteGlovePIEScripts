@@ -1,5 +1,5 @@
 ﻿/*
-    Wiimote GlovePIE Script - Basic Template.
+    GlovePIE Script - Wiimote - Hell Let Loose.
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,12 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+/*
+	How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
+	Description: Emulates Mouse and Keyboard from Wiimote input.
+	Game Settings: Default Bindings.
+*/
+
 // Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
@@ -25,8 +31,8 @@ var.BoxWidth = 20
 var.BoxHeight = 15
 
 // Sensitivity Adjustments
-var.Sensitivity = 15
-var.AutoTurnSpeed = 30
+var.Sensitivity = 10
+var.AutoTurnSpeed = 35
 
 // Pointer Tracking, Auto-turn, Mouse Output
 If Helddown(Wiimote.PointerVisible, 750ms)
@@ -48,32 +54,41 @@ Else
     var.YMod = 0
 Endif
 
-// Keyboard & Mouse Button Mapping
-Key.F5               =    Wiimote.Up
-Key.Q                =    Wiimote.Down
-Key.F                =    Wiimote.Left
-Key.L                =    Wiimote.Right
+// Button Mapping
+Key.B                =    Wiimote.Up
+Key.R                =    Keepdown(Wiimote.Down, 250ms) and Helddown(not Wiimote.Down, 100ms)
+Key.Alt              =    Keepdown(not Wiimote.Down, 250ms) and Helddown(Wiimote.Down, 25ms)
+Key.F                =    Helddown(Wiimote.Down, 150ms)
+Key.Q                =    Wiimote.Left
+Key.E                =    Wiimote.Right
 
-Mouse.RightButton    =    Wiimote.A
+Mouse.RightButton    =    Keepdown(Wiimote.A, 150ms) but not Wiimote.A
 Mouse.LeftButton     =    Wiimote.B
 
-Mouse.WheelDown      =    Wiimote.Plus
-Key.E                =    Wiimote.Home
-Mouse.WheelUp        =    Wiimote.Minus
+Mouse.WheelUp        =    Helddown(Wiimote.Plus, 250ms) or (Keepdown(Wiimote.Plus, 250ms) and not Wiimote.Plus)
+Key.Left             =    Helddown(Wiimote.Plus, 250ms)
+Key.M                =    Keepdown(Wiimote.Home, 250ms) and Helddown(not Wiimote.Home, 100ms)
+Key.CapsLock         =    Keepdown(not Wiimote.Home, 250ms) and Helddown(Wiimote.Home, 25ms)
+Key.X                =    Helddown(Wiimote.Plus, 150ms) or Helddown(Wiimote.Minus, 150ms)
+Key.T                =    Helddown(Wiimote.Home, 150ms)
+Key.Right            =    Helddown(Wiimote.Minus, 250ms)
+Mouse.WheelDown      =    Helddown(Wiimote.Minus, 250ms) or (Keepdown(Wiimote.Minus, 250ms) and not Wiimote.Minus)
 
 Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)
 Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
-Key.5                =    Helddown(Wiimote.One, 150ms)
-
+Key.V                =    Helddown(Wiimote.One, 150ms)
+Key.X                =    Helddown(Wiimote.One and Wiimote.Two, 250ms)
 Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.Two, 100ms)
 Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
-Key.6                =    Helddown(Wiimote.Two, 150ms)
+Key.C                =    Helddown(Wiimote.Two, 150ms)
 
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
-Key.Ctrl             =    Wiimote.Nunchuk.JoyY < -0.65
-Key.Shift            =    Wiimote.Nunchuk.CButton
-Key.Space            =    Wiimote.Nunchuk.ZButton
+Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65
+Key.Shift            =    Wiimote.A and (Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 200ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 200ms))
+Key.Z                =    Wiimote.Nunchuk.CButton
+Key.Space            =    Helddown(Wiimote.Nunchuk.ZButton, 150ms)
+Key.Ctrl             =    Keepdown(Wiimote.Nunchuk.ZButton, 250ms) and not Wiimote.Nunchuk.Z

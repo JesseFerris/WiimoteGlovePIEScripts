@@ -1,5 +1,5 @@
 ﻿/*
-    Wiimote GlovePIE Script - Basic Template.
+    GlovePIE Script - Wiimote - Squad - Hold ADS - Toggle Crouch.
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -14,6 +14,12 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/*
+	How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
+	Description: Emulates Mouse and Keyboard from Wiimote input.
+	Game Settings: Default Bindings. Hold ADS. Toggle Crouch.
 */
 
 // Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
@@ -48,7 +54,7 @@ Else
     var.YMod = 0
 Endif
 
-// Keyboard & Mouse Button Mapping
+// Button Mapping
 Key.C                =    Helddown(Wiimote.Up, 250ms)
 Key.R                =    Keepdown(Wiimote.Down, 250ms) and Helddown(not Wiimote.Down, 100ms)
 Mouse.MiddleButton   =    Keepdown(not Wiimote.Down, 250ms) and Helddown(Wiimote.Down, 25ms)
@@ -56,17 +62,17 @@ Key.F                =    Helddown(Wiimote.Down, 150ms)
 Key.Q                =    Wiimote.Left
 Key.E                =    Wiimote.Right
 
-Mouse.RightButton    =    (Keepdown(Wiimote.A, 150ms) but not Wiimote.A) or Helddown(Wiimote.A and Wiimote.B, 500ms)
+Mouse.RightButton    =    Wiimote.A
 Mouse.LeftButton     =    Wiimote.B
 
-Mouse.WheelUp        =    Helddown(Wiimote.Plus, 250ms) or (Keepdown(Wiimote.Plus, 150ms) and not Wiimote.Plus)
+Mouse.WheelUp        =    Helddown(Wiimote.Plus, 250ms) or (Keepdown(Wiimote.Plus, 250ms) and not Wiimote.Plus)
 Key.Left             =    Helddown(Wiimote.Plus, 250ms)
 Key.M                =    Keepdown(Wiimote.Home, 250ms) and Helddown(not Wiimote.Home, 100ms)
 Key.CapsLock         =    Keepdown(not Wiimote.Home, 250ms) and Helddown(Wiimote.Home, 25ms)
-Key.X                =    Helddown(Wiimote.Plus, 200ms) or Helddown(Wiimote.Minus, 200ms)
+Key.X                =    Helddown(Wiimote.Plus, 150ms) or Helddown(Wiimote.Minus, 150ms)
 Key.T                =    Helddown(Wiimote.Home, 150ms)
 Key.Right            =    Helddown(Wiimote.Minus, 250ms)
-Mouse.WheelDown      =    Helddown(Wiimote.Minus, 250ms) or (Keepdown(Wiimote.Minus, 150ms) and not Wiimote.Minus)
+Mouse.WheelDown      =    Helddown(Wiimote.Minus, 250ms) or (Keepdown(Wiimote.Minus, 250ms) and not Wiimote.Minus)
 
 Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms) and Helddown(not Wiimote.Two, 250ms)
 Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms) and Helddown(not Wiimote.Two, 250ms)
