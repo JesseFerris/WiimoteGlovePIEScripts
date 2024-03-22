@@ -55,13 +55,13 @@ Else
 Endif
 
 // Button Mapping
-Key.G                =    Wiimote.Up
-Key.E                =    Wiimote.Down
-Key.R                =    Wiimote.Left
+Key.G                =    Wiimote.Up and Wiimote.B
+Key.Space            =    Wiimote.Up and not Wiimote.B
+Key.Ctrl             =    Wiimote.Down
+Key.E                =    Wiimote.Left
 Key.F                =    Wiimote.Right
 
 Mouse.RightButton    =    Wiimote.A
-Mouse.LeftButton     =    Wiimote.B
 
 Mouse.WheelDown      =    Keepdown(Wiimote.Plus, 250ms) and not Wiimote.Plus
 Key.F4               =    Helddown(Wiimote.Plus, 250ms)
@@ -84,5 +84,5 @@ Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
 Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
-Key.Space            =    Wiimote.Nunchuk.CButton
-Key.Ctrl             =    Wiimote.Nunchuk.ZButton
+Key.R                =    Wiimote.Nunchuk.CButton
+Mouse.LeftButton     =    Wiimote.Nunchuk.ZButton
