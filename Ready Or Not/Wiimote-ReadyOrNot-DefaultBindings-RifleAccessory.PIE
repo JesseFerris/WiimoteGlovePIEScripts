@@ -57,6 +57,7 @@ Endif
 // Button Mapping
 Key.F                =    Keepdown(Wiimote.Up, 250ms) and Helddown(not Wiimote.Up, 100ms) and not Wiimote.B
 Key.PageUp           =    Keepdown(not Wiimote.Up, 250ms) and Helddown(Wiimote.Up, 25ms) and not Wiimote.B
+Key.F                =    Helddown(Wiimote.Up, 250ms) and not Wiimote.B
 Key.B                =    Wiimote.Up and Wiimote.B
 Key.Ctrl             =    Wiimote.Down
 Key.Q                =    Wiimote.Left

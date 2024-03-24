@@ -31,8 +31,8 @@ var.BoxWidth = 20
 var.BoxHeight = 15
 
 // Sensitivity Adjustments
-var.Sensitivity = 30
-var.AutoTurnSpeed = 175
+var.Sensitivity = 20
+var.AutoTurnSpeed = 150
 
 // Pointer Tracking, Auto-turn, Mouse Output
 If Helddown(Wiimote.PointerVisible, 750ms)
@@ -55,8 +55,10 @@ Else
 Endif
 
 // Button Mapping
+Key.F                =    Keepdown(Wiimote.Up, 250ms) and Helddown(not Wiimote.Up, 100ms) and not Wiimote.Nunchuk.CButton
+Key.PageUp           =    Keepdown(not Wiimote.Up, 250ms) and Helddown(Wiimote.Up, 25ms) and not Wiimote.Nunchuk.CButton
+Key.F                =    Helddown(Wiimote.Up, 250ms) and not Wiimote.Nunchuk.CButton
 Key.B                =    Wiimote.Up and Wiimote.Nunchuk.CButton
-Key.F                =    Wiimote.Up and not Wiimote.Nunchuk.CButton
 Key.X                =    Wiimote.Down and not Wiimote.Nunchuk.CButton
 Key.R                =    Wiimote.Down and Wiimote.Nunchuk.CButton
 Key.Q                =    Wiimote.Left
