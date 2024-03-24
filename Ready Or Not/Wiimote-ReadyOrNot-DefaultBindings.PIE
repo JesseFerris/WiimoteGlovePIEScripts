@@ -55,19 +55,41 @@ Else
 Endif
 
 // Button Mapping
-Key.B                =    Wiimote.Up
-Key.R                =    Keepdown(Wiimote.Down, 250ms) and Helddown(not Wiimote.Down, 100ms)
-Key.X                =    Keepdown(not Wiimote.Down, 250ms) and Helddown(Wiimote.Down, 25ms)
-Key.F                =    Helddown(Wiimote.Down, 150ms)
+Key.B                =    Wiimote.Up and Wiimote.Nunchuk.CButton
+Key.F                =    Wiimote.Up and not Wiimote.Nunchuk.CButton
+Key.X                =    Wiimote.Down and not Wiimote.Nunchuk.CButton
+Key.R                =    Wiimote.Down and Wiimote.Nunchuk.CButton
 Key.Q                =    Wiimote.Left
 Key.E                =    Wiimote.Right
 
 Mouse.RightButton    =    Wiimote.A
+Key.P                =    Wiimote.A and Keepdown(Wiimote.Nunchuk.CButton, 250ms) and Helddown(not Wiimote.Nunchuk.CButton, 80ms)
+Key.O                =    Wiimote.A and Keepdown(not Wiimote.Nunchuk.CButton, 250ms) and Helddown(Wiimote.Nunchuk.CButton, 25ms)
 Mouse.LeftButton     =    Wiimote.B
 
-Mouse.WheelDown      =    Wiimote.Plus
-Mouse.MiddleButton   =    Helddown(Wiimote.Home, 250ms)
-Mouse.WheelUp        =    Wiimote.Minus
+If (Wiimote.Home but not Helddown(Wiimote.Home,10ms)) and Wiimote.Nunchuk.CButton then var.Counter += 1
+If (Helddown(Wiimote.Home, 250ms)) or (Helddown(not Wiimote.Home, 500ms) and var.Counter > 0) then var.Counter = 0
+
+Mouse.MiddleButton   =    Helddown(Wiimote.Home, 250ms) and Wiimote.Nunchuk.CButton
+Key.Tab              =    Wiimote.Home and not Wiimote.Nunchuk.CButton
+Key.1                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 1)
+Key.2                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 2)
+Key.3                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 3)
+Key.4                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 4)
+Key.5                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 5)
+Key.6                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 6)
+Key.7                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 7)
+Key.8                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 8)
+Key.9                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 9)
+Key.0                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 10)
+
+Mouse.WheelDown      =    Keepdown(Wiimote.Plus, 250ms) and not Wiimote.Plus
+Key.Y                =    Helddown(Wiimote.Plus, 250ms) and Wiimote.Nunchuk.CButton
+Mouse.XButton2       =    Helddown(Wiimote.Plus, 150ms) and not Wiimote.Nunchuk.CButton
+
+Key.N                =    Helddown(Wiimote.Minus, 150ms) and not Wiimote.Nunchuk.CButton
+Key.Backspace        =    Helddown(Wiimote.Minus, 250ms) and Wiimote.Nunchuk.CButton
+Mouse.WheelUp        =    Keepdown(Wiimote.Minus, 250ms) and not Wiimote.Minus
 
 Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms) and Helddown(not Wiimote.Two, 250ms)
 Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms) and Helddown(not Wiimote.Two, 250ms)
@@ -84,20 +106,5 @@ Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
 Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
-Key.Space            =    Keepdown(Wiimote.Nunchuk.CButton, 250ms) and not Wiimote.Nunchuk.C
 Key.Alt              =    Helddown(Wiimote.Nunchuk.CButton, 150ms)
 Key.Ctrl             =    Wiimote.Nunchuk.ZButton
-
-If (Wiimote.Home but not Helddown(Wiimote.Home,10ms)) then var.Counter += 1
-If (Helddown(Wiimote.Home, 250ms)) or (Helddown(not Wiimote.Home, 500ms) and var.Counter > 0) then var.Counter = 0
-
-Key.1 = (var.Counter = 1)  and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 1 time.
-Key.2 = (var.Counter = 2)  and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 2 times.
-Key.3 = (var.Counter = 3)  and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 3 times.
-Key.4 = (var.Counter = 4)  and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 4 times.
-Key.5 = (var.Counter = 5)  and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 5 times.
-Key.6 = (var.Counter = 6)  and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 6 times.
-Key.7 = (var.Counter = 7)  and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 7 times.
-Key.8 = (var.Counter = 8)  and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 8 times.
-Key.9 = (var.Counter = 9)  and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 9 times.
-Key.0 = (var.Counter = 10) and Helddown(not Wiimote.Home, 250ms) // Wii remote HOME pressed 10 times.
