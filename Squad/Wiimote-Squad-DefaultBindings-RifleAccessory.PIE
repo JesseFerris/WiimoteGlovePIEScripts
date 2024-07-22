@@ -63,7 +63,7 @@ Key.E                =    Wiimote.Right
 
 Mouse.RightButton    =    ((Keepdown(Wiimote.A, 150ms) but not Wiimote.A) and not Wiimote.B) or Helddown(Wiimote.A and Wiimote.B, 250ms)
 Key.C                =    (Keepdown(Wiimote.B, 250ms) and not Wiimote.B)
-Key.F                =    Wiimote.A and Wiimote.B
+Key.F                =    Helddown(Wiimote.A and Wiimote.B, 150ms)
 
 If Wiimote.B and (Wiimote.A but not Helddown(Wiimote.A,10ms)) then var.Counter += 1
 If (Helddown(Wiimote.A, 250ms)) or (Helddown(not Wiimote.A, 500ms) and var.Counter > 0) then var.Counter = 0
