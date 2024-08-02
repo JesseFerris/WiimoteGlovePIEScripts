@@ -70,7 +70,7 @@ Key.J                =    Helddown(Wiimote.B, 250ms)
 
 Mouse.WheelDown      =    Wiimote.Plus
 Key.M                =    Helddown(Wiimote.Plus, 250ms) and Wiimote.B
-Key.Tab              =    Helddown(Wiimote.Home, 300ms)
+Key.Tab              =    Helddown(Wiimote.Home, 250ms)
 Key.N                =    Helddown(Wiimote.Minus, 250ms) and Wiimote.B
 Mouse.WheelUp        =    Wiimote.Minus
 
@@ -88,7 +88,7 @@ Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
 Key.Alt              =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65)) and not Wiimote.Home
-Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65 and Helddown(not Wiimote.A, 500ms) and not Wiimote.Home
+Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65 and Helddown(not Wiimote.A, 500ms) and Helddown(not Wiimote.Home, 250ms)
 Key.Shift            =    (Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 75ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 100ms)) and Wiimote.A
 Key.R                =    Wiimote.Nunchuk.CButton and not Wiimote.B
 Key.X                =    Wiimote.Nunchuk.CButton and Wiimote.B
