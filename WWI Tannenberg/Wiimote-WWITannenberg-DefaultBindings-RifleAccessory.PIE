@@ -1,5 +1,5 @@
 ﻿/*
-    GlovePIE Script - Wiimote - Insurgancy Sandstorm - Toggle ADS - Toggle Crouch.
+    GlovePIE Script - Wiimote - WWI Tannenberg - Default Bindings - Rifle Accessory
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@ var.BoxWidth = 20
 var.BoxHeight = 15
 
 // Sensitivity Adjustments
-var.Sensitivity = 15
+var.Sensitivity = 7
 var.AutoTurnSpeed = 30
 
 // Pointer Tracking, Auto-turn, Mouse Output
@@ -55,41 +55,36 @@ Else
 Endif
 
 // Button Mapping
-Key.H                =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up and Wiimote.B
-Key.Space            =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up and Helddown(not Wiimote.B, 250ms)
-Mouse.MiddleButton   =    Helddown(Wiimote.Up, 150ms) and Helddown(not Wiimote.B, 250ms)
-Key.Ctrl             =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down and Helddown(not Wiimote.B, 250ms)
-Key.G                =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down and Wiimote.B
-Key.Z                =    Helddown(Wiimote.Down, 150ms)
-Key.Q                =    Wiimote.Left
-Key.E                =    Wiimote.Right
+Key.Space            =    Helddown(Wiimote.Up, 150ms)
+Key.F                =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up
+Key.C                =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down
+Key.Ctrl             =    Helddown(Wiimote.Down, 150ms)
+Key.5                =    Wiimote.Left
+Key.F3               =    Wiimote.Right
 
 Mouse.RightButton    =    Keepdown(Wiimote.A, 150ms) and not Wiimote.A and Helddown(not Wiimote.B, 250ms)
-Key.F                =    Wiimote.A and Wiimote.B
-Key.J                =    Helddown(Wiimote.B, 250ms)
+Key.Shift            =    Wiimote.A and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 75ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 100ms)
+Key.E                =    Wiimote.A and Wiimote.B
+Key.Q                =    Helddown(Wiimote.B, 250ms)
 
 Mouse.WheelDown      =    Wiimote.Plus
-Key.M                =    Helddown(Wiimote.Plus, 250ms) and Wiimote.B
-Key.Tab              =    Helddown(Wiimote.Home, 250ms)
-Key.N                =    Helddown(Wiimote.Minus, 250ms) and Wiimote.B
+Key.M                =    Helddown(Wiimote.Home, 250ms)
+Key.N                =    Keepdown(Wiimote.Home, 250ms) and not Wiimote.Home
 Mouse.WheelUp        =    Wiimote.Minus
 
 Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)
 Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
-Key.4                =    Helddown(Wiimote.One, 150ms)
-Key.V                =    Helddown(Wiimote.One and Wiimote.Two, 250ms)
+Key.LeftAlt          =    Helddown(Wiimote.One, 150ms)
 Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.Two, 100ms)
-Key.5                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
-Key.B                =    Helddown(Wiimote.Two, 150ms)
+Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
+Key.V                =    Helddown(Wiimote.Two, 150ms)
 
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
-Key.Alt              =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65)) and not Wiimote.Home
 Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65 and Helddown(not Wiimote.A, 500ms) and Helddown(not Wiimote.Home, 250ms)
-Key.Shift            =    (Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 75ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 100ms)) and Wiimote.A
-Key.R                =    Wiimote.Nunchuk.CButton and not Wiimote.B
-Key.X                =    Wiimote.Nunchuk.CButton and Wiimote.B
+Key.G                =    Wiimote.Nunchuk.CButton and Wiimote.B
+Key.R                =    Wiimote.Nunchuk.CButton and Helddown(not Wiimote.B, 250ms)
 Mouse.LeftButton     =    Wiimote.Nunchuk.Z

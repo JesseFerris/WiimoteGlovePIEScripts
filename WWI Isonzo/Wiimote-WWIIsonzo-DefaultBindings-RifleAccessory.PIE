@@ -1,5 +1,5 @@
 ﻿/*
-    GlovePIE Script - Wiimote - Insurgancy Sandstorm - Hold ADS - Hold Crouch.
+    GlovePIE Script - Wiimote - WWI Isonzo
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,7 @@
 /*
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
     Description: Emulates Mouse and Keyboard from Wiimote controller.
-    Game Settings: Default Bindings. Hold ADS. Hold Crouch.
+    Game Settings: Default Bindings. Rifle Accessory.
 */
 
 // Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
@@ -31,7 +31,7 @@ var.BoxWidth = 20
 var.BoxHeight = 15
 
 // Sensitivity Adjustments
-var.Sensitivity = 15
+var.Sensitivity = 7
 var.AutoTurnSpeed = 30
 
 // Pointer Tracking, Auto-turn, Mouse Output
@@ -55,43 +55,37 @@ Else
 Endif
 
 // Button Mapping
-Key.C                =    Keepdown(Wiimote.Up, 250ms) and Helddown(not Wiimote.Up, 100ms)
-Key.B                =    Keepdown(not Wiimote.Up, 250ms) and Helddown(Wiimote.Up, 25ms)
-Mouse.MiddleButton   =    Helddown(Wiimote.Up, 250ms)
-Key.F                =    Helddown(Wiimote.Down, 150ms)
-Key.R                =    Wiimote.Down
-Key.X                =    Keepdown(Wiimote.Left, 150ms) and not Wiimote.Left
-Key.Q                =    Helddown(Wiimote.Left, 150ms)
-Key.H                =    Keepdown(Wiimote.Right, 150ms) and not Wiimote.Right
-Key.E                =    Helddown(Wiimote.Right, 150ms)
+Key.Space            =    Helddown(Wiimote.Up, 150ms)
+Key.F                =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up
+Key.C                =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down
+Key.Ctrl             =    Helddown(Wiimote.Down, 150ms)
+Key.5                =    Wiimote.Left
+Key.F3               =    Wiimote.Right
 
-Key.Shift            =    Helddown(Wiimote.A, 150ms) and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 350ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 350ms)
-Mouse.RightButton    =    Wiimote.A
-Mouse.LeftButton     =    Wiimote.B
+Mouse.RightButton    =    Keepdown(Wiimote.A, 150ms) and not Wiimote.A and Helddown(not Wiimote.B, 250ms)
+Key.E                =    Wiimote.A and Wiimote.B
+Key.Q                =    Helddown(Wiimote.B, 250ms)
 
 Mouse.WheelDown      =    Wiimote.Plus
-Key.M                =    Helddown(Wiimote.Plus, 250ms)
-Key.Esc              =    Keepdown(Wiimote.Home, 150ms) and not Wiimote.Home
-Key.Tab              =    Helddown(Wiimote.Home, 250ms)
-Key.N                =    Helddown(Wiimote.Minus, 250ms)
+Key.M                =    Helddown(Wiimote.Home, 250ms)
+Key.N                =    Keepdown(Wiimote.Home, 250ms) and not Wiimote.Home
 Mouse.WheelUp        =    Wiimote.Minus
 
 Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)
-Key.5                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
-Key.4                =    Helddown(Wiimote.One, 150ms) and Helddown(not Wiimote.Two, 250ms)
-Key.V                =    Helddown(Wiimote.One and Wiimote.Two, 250ms)
+Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
+Key.LeftAlt          =    Helddown(Wiimote.One, 150ms) and Helddown(not Wiimote.Two, 150ms)
+Key.B                =    Helddown(Wiimote.One and Wiimote.Two, 250ms)
 Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.Two, 100ms)
-Key.3                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
-Key.J                =    Helddown(Wiimote.Two, 150ms) and Helddown(not Wiimote.One, 250ms)
+Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
+Key.V                =    Helddown(Wiimote.Two, 150ms) and Helddown(not Wiimote.One, 150ms)
 
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
-Key.Alt              =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
 Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65 and Helddown(not Wiimote.A, 500ms) and Helddown(not Wiimote.Home, 250ms)
-Key.Space            =    Wiimote.Nunchuk.CButton
-Key.Ctrl             =    Helddown(Wiimote.Nunchuk.ZButton, 150ms)
-Key.Z                =    Keepdown(Wiimote.Nunchuk.ZButton, 250ms) and not Wiimote.Nunchuk.Z
-
+Key.Shift            =    (Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 75ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 100ms)) and Wiimote.A
+Key.G                =    Wiimote.Nunchuk.CButton and Wiimote.B
+Key.R                =    Wiimote.Nunchuk.CButton and Helddown(not Wiimote.B, 250ms)
+Mouse.LeftButton     =    Wiimote.Nunchuk.Z
