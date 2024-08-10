@@ -2,7 +2,7 @@ My Wiimote GlovePIE scripts.
 
 Emulates Mouse and Keyboard from Wiimote controller.
 
-Connect Wiimote via Bluetooth. Run scripts With GlovePIE.exe created by Carl Kenner.
+Connect Wiimote via Bluetooth. Run scripts with GlovePIE.exe created by Carl Kenner.
 
 http://sites.google.com/site/carlkenner/glovepie (site not found)
 
