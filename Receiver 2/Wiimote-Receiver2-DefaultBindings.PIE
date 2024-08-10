@@ -31,8 +31,8 @@ var.BoxWidth = 20
 var.BoxHeight = 15
 
 // Sensitivity Adjustments
-var.Sensitivity = 30
-var.AutoTurnSpeed = 60
+var.Sensitivity = 50
+var.AutoTurnSpeed = 100
 
 // Pointer Tracking, Auto-turn, Mouse Output
 If Helddown(Wiimote.PointerVisible, 750ms)
@@ -55,9 +55,9 @@ Else
 Endif
 
 // Button Mapping
-Key.Z                =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up
-Key.G                =    Helddown(Wiimote.Up, 150ms)
-Key.V                =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down
+Key.G                =    Wiimote.Up
+Key.Z                =    Keepdown(Wiimote.Down, 250ms) and Helddown(not Wiimote.Down, 100ms)
+Key.V                =    Keepdown(not Wiimote.Down, 250ms) and Helddown(Wiimote.Down, 25ms)
 Key.F                =    Helddown(Wiimote.Down, 150ms)
 Key.E                =    Wiimote.Left
 Key.T                =    Keepdown(Wiimote.Right, 250ms) and not Wiimote.Right
@@ -67,9 +67,9 @@ Key.Q                =    Keepdown(Wiimote.A, 250ms) and not Wiimote.A
 Mouse.RightButton    =    Helddown(Wiimote.A, 100ms)
 Mouse.LeftButton     =    Wiimote.B
 
-Mouse.WheelDown      =    Wiimote.Plus
+Mouse.WheelUp        =    Wiimote.Plus
 Key.Tab              =    Wiimote.Home
-Mouse.WheelUp        =    Wiimote.Minus
+Mouse.WheelDown      =    Wiimote.Minus
 
 Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)
 Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
