@@ -7,7 +7,6 @@ Connect Wiimote via Bluetooth. Run scripts with GlovePIE.exe created by Carl Ken
 http://sites.google.com/site/carlkenner/glovepie (site not found)
 
 https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file (mirror)
-
  ___________
 | @   _     |
 |   _| |_   |
