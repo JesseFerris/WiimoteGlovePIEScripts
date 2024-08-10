@@ -1,5 +1,5 @@
 ﻿/*
-    GlovePIE Script - Wiimote - Half Life.
+    Wiimote-HalfLife-DefaultBindings.PIE
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
 
-// Imaginary Box Size
+// Box Size
 var.BoxWidth = 20
 var.BoxHeight = 15
 

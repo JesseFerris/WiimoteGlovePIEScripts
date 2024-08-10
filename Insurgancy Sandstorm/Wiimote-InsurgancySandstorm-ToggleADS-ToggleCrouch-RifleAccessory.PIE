@@ -1,5 +1,5 @@
 ﻿/*
-    GlovePIE Script - Wiimote - Insurgancy Sandstorm - Toggle ADS - Toggle Crouch - Rifle Accessory.
+    Wiimote-InsurgancySandstorm-ToggleADS-ToggleCrouch-RifleAccessory.PIE
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -19,14 +19,14 @@
 /*
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
     Description: Emulates Mouse and Keyboard from Wiimote controller.
-    Game Settings: Default Bindings. Rifle Accessory.
+    Game Settings: Default Bindings.
 */
 
 // Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
 
-// Imaginary Box Size
+// Box Size
 var.BoxWidth = 20
 var.BoxHeight = 15
 
