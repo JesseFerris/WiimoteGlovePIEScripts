@@ -22,9 +22,9 @@
     In-Game Settings: Default Bindings.
     ___________
    | @   _     |  D-Pad    Up: Keyboard F
-   |   _| |_   |         Left: Keyboard Q
-   |  |_   _|  |        Right: Keyboard E
-   |    |_|    |         Down: Keyboard R
+   |   _| |_   |         Down: Keyboard R
+   |  |_   _|  |         Left: Keyboard Q
+   |    |_|    |        Right: Keyboard E
    |           |
    |    (A)    |            A: Mouse Right Button
    |           |            B: Mouse Left Button

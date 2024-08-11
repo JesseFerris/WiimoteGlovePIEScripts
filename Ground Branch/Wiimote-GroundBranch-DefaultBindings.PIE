@@ -1,0 +1,124 @@
+﻿/*
+    Wiimote-GroundBranch-DefaultBindings.PIE
+    Copyright (C) 2024  Jesse Ferris
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/*
+    How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
+    Description: Emulates Mouse and Keyboard from Wiimote controller input.
+    In-Game Settings: Default Bindings.
+    ___________
+   | @   _     |  D-Pad    Up: Interact, Drop Item, Night Vision Goggles (Pressed 1x or held in game, Pressed 2x, Pressed with Nunchuck C)
+   |   _| |_   |         Down: Reload/Quickreload/Inspect Ammo, Laser (Pressed 1x 2x or held in game, Pressed with Nunchuk C)
+   |  |_   _|  |         Left: Fire Mode Selector, Lean left, Tac light (Pressed 1x, Helddown, Pressed with Nunchuk C)
+   |    |_|    |        Right: Toggle Laser Mode, Lean Right, IR Illuminator (Pressed 1x, Helddown, Pressed with Nunchuk C)
+   |           |
+   |    (A)    |            A: ADS (Aim Down Sights), Steady Aim (Pressed 1x, Helddown)
+   |           |            B: Fire/Throw
+   |           |
+   |  -  &  +  |         Plus: Mouse Wheel Down
+   |           |         Home: Coms Wheel
+   |     #     |        Minus: Mouse Wheel Up
+   |           |
+   |    (1)    |          One: Primary Weapon, Grenades, Proximity VOIP (Pressed 1x, Pressed 2x, Helddown)
+   |           |
+   |    (2)    |          Two: Secondary Weapon, Equipment, Radio VOIP (Pressed 1x, Pressed 2x, Helddown)
+   |           |
+   |  o o o o  |  Nunchuk   C: Jump
+   |    Wii    |            Z: Crouch
+   |___________|          Joy: Move, Run, Sprint
+
+*/
+
+// Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
+Pie.RealFrameRate = 100Hz
+Wiimote.Leds = 0
+
+// Box Size
+var.BoxWidth = 20
+var.BoxHeight = 15
+
+// Sensitivity Adjustments
+var.Sensitivity = 15
+var.AutoTurnSpeed = 30
+
+// Pointer Tracking, Auto-turn, Mouse Output
+If Helddown(Wiimote.PointerVisible, 750ms)
+
+    var.PointerX = (Wiimote.PointerX - 1/2) * 100
+    var.PointerY = (Wiimote.PointerY - 1/2) * 100
+
+    var.ModifyerX = Delta(var.PointerX) * var.Sensitivity
+    var.ModifyerY = Delta(var.PointerY) * var.Sensitivity
+                                                                                    
+    If abs(var.PointerX) > var.BoxWidth then var.ModifyerX += ((abs(var.PointerX) - var.BoxWidth) / var.PointerX) * var.AutoTurnSpeed
+    If abs(var.PointerY) > var.BoxHeight then var.ModifyerY += ((abs(var.PointerY) - var.BoxHeight) / var.PointerY) * var.AutoTurnSpeed
+
+    Mouse.DirectInputX += var.ModifyerX
+    Mouse.DirectInputY += var.ModifyerY
+
+Else
+    var.XMod = 0
+    var.YMod = 0
+Endif
+
+// Button Mapping
+Key.N                =    Wiimote.Up and Wiimote.Nunchuk.CButton
+Key.F                =    Wiimote.Up and not Wiimote.Nunchuk.CButton
+Key.J                =    Keepdown(not Wiimote.Up, 250ms) and Helddown(Wiimote.Up, 25ms) and not Wiimote.Nunchuk.CButton
+Key.6                =    Wiimote.Down and Wiimote.Nunchuk.CButton
+Key.R                =    Wiimote.Down and not Wiimote.Nunchuk.CButton
+Key.5                =    Wiimote.Left and Wiimote.Nunchuk.CButton
+Key.X                =    Keepdown(Wiimote.Left, 250ms) and Helddown(not Wiimote.Left, 100ms) and not Wiimote.Nunchuk.CButton
+Key.3                =    Keepdown(not Wiimote.Left, 250ms) and Helddown(Wiimote.Left, 25ms) and not Wiimote.Nunchuk.CButton
+Key.Q                =    Helddown(Wiimote.Left, 150ms) and not Wiimote.Nunchuk.CButton
+Key.8                =    Wiimote.Right and Wiimote.Nunchuk.CButton
+Key.7                =    Keepdown(Wiimote.Right, 250ms) and Helddown(not Wiimote.Right, 100ms) and not Wiimote.Nunchuk.CButton
+Key.3                =    Keepdown(not Wiimote.Right, 250ms) and Helddown(Wiimote.Right, 25ms) and not Wiimote.Nunchuk.CButton
+Key.E                =    Helddown(Wiimote.Right, 150ms) and not Wiimote.Nunchuk.CButton
+
+Key.Ctrl             =    Wiimote.A and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 350ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 350ms)
+Mouse.RightButton    =    Keepdown(Wiimote.A, 150ms) but not Wiimote.A
+Mouse.LeftButton     =    Wiimote.B
+
+Key.Home             =    Helddown(Wiimote.Plus, 150ms) and Wiimote.Nunchuk.CButton
+Mouse.WheelUp        =    Keepdown(Wiimote.Plus, 150ms) and not Wiimote.Plus and Wiimote.Nunchuk.CButton
+Mouse.WheelUp        =    Keepdown(Wiimote.Plus, 150ms) and not Wiimote.Plus and not Wiimote.Nunchuk.CButton
+Key.G                =    Keepdown(Wiimote.Home, 150ms) and not Wiimote.Home
+Mouse.MiddleButton   =    Helddown(Wiimote.Home, 150ms)
+Mouse.WheelDown      =    Keepdown(Wiimote.Minus, 150ms) and not Wiimote.Minus and Wiimote.Nunchuk.CButton
+Mouse.WheelDown      =    Keepdown(Wiimote.Minus, 150ms) and not Wiimote.Minus and not Wiimote.Nunchuk.CButton
+Key.End              =    Helddown(Wiimote.Minus, 150ms) and Wiimote.Nunchuk.CButton
+
+Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)
+Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
+Key.V                =    Helddown(Wiimote.One, 150ms)
+
+Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.Two, 100ms)
+Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
+Key.B                =    Helddown(Wiimote.Two, 150ms)
+
+Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
+Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
+Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
+Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
+
+Key.Shift             =    ((abs(Wiimote.Nunchuk.JoyX) > 0.35) or (abs(Wiimote.Nunchuk.JoyY) > 0.35)) but not (Wiimote.Nunchuk.JoyY < -0.65)
+Key.Ctrl             =    Wiimote.Nunchuk.JoyY < -0.65
+Key.Alt              =    Wiimote.Nunchuk.CButton
+Key.Space            =    Keepdown(Wiimote.Nunchuk.ZButton, 250ms) and Helddown(not Wiimote.Nunchuk.ZButton, 100ms)
+Key.Z                =    Keepdown(not Wiimote.Nunchuk.ZButton, 250ms) and Helddown(Wiimote.Nunchuk.ZButton, 25ms)
+Key.C                =    Helddown(Wiimote.Nunchuk.ZButton, 150ms)
