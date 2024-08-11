@@ -22,7 +22,7 @@
     In-Game Settings: Default Bindings.
     ___________
    | @   _     |  D-Pad    Up: Interact, Drop Item, Night Vision Goggles (Pressed 1x or held in game, Pressed 2x, Pressed with Nunchuck C)
-   |   _| |_   |         Down: Reload/Quickreload/Inspect Ammo, Laser (Pressed 1x 2x or held in game, Pressed with Nunchuk C)
+   |   _| |_   |         Down: Reload/Quickreload/Inspect Ammo, Laser (Pressed 1x/2x/held in game, Pressed with Nunchuk C)
    |  |_   _|  |         Left: Fire Mode Selector, Lean left, Tac light (Pressed 1x, Helddown, Pressed with Nunchuk C)
    |    |_|    |        Right: Toggle Laser Mode, Lean Right, IR Illuminator (Pressed 1x, Helddown, Pressed with Nunchuk C)
    |           |
