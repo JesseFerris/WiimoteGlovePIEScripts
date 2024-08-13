@@ -22,9 +22,9 @@
     In-Game Settings: Default Bindings.
     ___________
    | @   _     |  D-Pad    Up: Keyboard F
-   |   _| |_   |         Down: Keyboard R
-   |  |_   _|  |         Left: Keyboard Q
-   |    |_|    |        Right: Keyboard E
+   |   _| |_   |         Left: Keyboard Q
+   |  |_   _|  |        Right: Keyboard E
+   |    |_|    |         Down: Keyboard R
    |           |
    |    (A)    |            A: Mouse Right Button
    |           |            B: Mouse Left Button
@@ -33,9 +33,9 @@
    |           |         Home: Keyboard Escape
    |     #     |        Minus: Mouse Wheel Up
    |           |
-   |    (1)    |          One: Keyboard 1, 3, 5 (Pressed 1x, Pressed 2x, Helddown)
+   |    (1)    |          One: Keyboard 1, 3, 5    (Pressed 1x, Pressed 2x, Helddown)
    |           |
-   |    (2)    |          Two: Keyboard 2, 4, 6 (Pressed 1x, Pressed 2x, Helddown)
+   |    (2)    |          Two: Keyboard 2, 4, 6    (Pressed 1x, Pressed 2x, Helddown)
    |           |
    |  o o o o  |  Nunchuk   C: Keyboard Space
    |    Wii    |            Z: Keyboard Ctrl
@@ -77,9 +77,9 @@ Endif
 
 // Button Mapping
 Key.F                =    Wiimote.Up
-Key.R                =    Wiimote.Down
 Key.Q                =    Wiimote.Left
 Key.E                =    Wiimote.Right
+Key.R                =    Wiimote.Down
 
 Mouse.RightButton    =    Wiimote.A
 Mouse.LeftButton     =    Wiimote.B
@@ -96,12 +96,11 @@ Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.
 Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
 Key.6                =    Helddown(Wiimote.Two, 150ms)
 
+Key.Space            =    Wiimote.Nunchuk.CButton
+Key.Ctrl             =    Wiimote.Nunchuk.ZButton
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
-
 Key.Alt              =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
 Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65
-Key.Space            =    Wiimote.Nunchuk.CButton
-Key.Ctrl             =    Wiimote.Nunchuk.ZButton

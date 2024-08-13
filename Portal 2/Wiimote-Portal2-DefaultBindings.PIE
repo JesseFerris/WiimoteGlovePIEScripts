@@ -67,10 +67,10 @@ Mouse.WheelUp        =    Wiimote.Minus
 Key.F6               =    Wiimote.One
 Key.F7               =    Wiimote.Two
 
+Key.Ctrl             =    Wiimote.Nunchuk.CButton
+Key.Space            =    Wiimote.Nunchuk.ZButton
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
-Key.Ctrl             =    Wiimote.Nunchuk.CButton
-Key.Space            =    Wiimote.Nunchuk.ZButton

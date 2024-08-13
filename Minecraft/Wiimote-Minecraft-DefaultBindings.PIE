@@ -75,11 +75,10 @@ Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.
 Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
 Key.6                =    Helddown(Wiimote.Two, 150ms)
 
+Key.Shift            =    Wiimote.Nunchuk.CButton
+Key.Space            =    Wiimote.Nunchuk.ZButton
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
-
 Key.Ctrl             =    Wiimote.Nunchuk.JoyY < -0.65
-Key.Shift            =    Wiimote.Nunchuk.CButton
-Key.Space            =    Wiimote.Nunchuk.ZButton

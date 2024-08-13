@@ -62,6 +62,7 @@ Key.Ctrl             =    Helddown(Wiimote.Down, 150ms)
 Key.5                =    Wiimote.Left
 Key.F3               =    Wiimote.Right
 
+Key.Shift            =    Wiimote.A and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 75ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 100ms)
 Mouse.RightButton    =    Keepdown(Wiimote.A, 150ms) and not Wiimote.A and Helddown(not Wiimote.B, 250ms)
 Key.E                =    Wiimote.A and Wiimote.B
 Key.Q                =    Helddown(Wiimote.B, 250ms)
@@ -79,13 +80,12 @@ Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.
 Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
 Key.V                =    Helddown(Wiimote.Two, 150ms) and Helddown(not Wiimote.One, 150ms)
 
+Key.G                =    Wiimote.Nunchuk.CButton and Wiimote.B
+Key.R                =    Wiimote.Nunchuk.CButton and Helddown(not Wiimote.B, 250ms)
+Mouse.LeftButton     =    Wiimote.Nunchuk.Z
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
-
 Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65 and Helddown(not Wiimote.A, 500ms) and Helddown(not Wiimote.Home, 250ms)
-Key.Shift            =    (Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 75ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 100ms)) and Wiimote.A
-Key.G                =    Wiimote.Nunchuk.CButton and Wiimote.B
-Key.R                =    Wiimote.Nunchuk.CButton and Helddown(not Wiimote.B, 250ms)
-Mouse.LeftButton     =    Wiimote.Nunchuk.Z
+

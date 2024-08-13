@@ -21,21 +21,21 @@
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
     In-Game Settings: Default Bindings.
     ___________
-   | @   _     |  D-Pad    Up: Interact, Drop Item, Night Vision Goggles (Pressed 1x or held in game, Pressed 2x, Pressed with Nunchuck C)
-   |   _| |_   |         Down: Reload/Quickreload/Inspect Ammo, Laser (Pressed 1x/2x/held in game, Pressed with Nunchuk C)
-   |  |_   _|  |         Left: Fire Mode Selector, Lean left, Tac light (Pressed 1x, Helddown, Pressed with Nunchuk C)
-   |    |_|    |        Right: Toggle Laser Mode, Lean Right, IR Illuminator (Pressed 1x, Helddown, Pressed with Nunchuk C)
+   | @   _     |  D-Pad    Up: Interact, Drop Item, Night Vision Goggles         (Pressed 1x or held in game, Pressed 2x, Pressed with Nunchuck C)
+   |   _| |_   |         Left: Fire Mode Selector, Lean left, Tac light          (Pressed 1x, Helddown, Pressed with Nunchuk C)
+   |  |_   _|  |        Right: Toggle Laser Mode, Lean Right, IR Illuminator     (Pressed 1x, Helddown, Pressed with Nunchuk C)
+   |    |_|    |         Down: Reload/Quickreload/Inspect Ammo, Laser            (Pressed 1x/2x/held in game, Pressed with Nunchuk C)
    |           |
-   |    (A)    |            A: ADS (Aim Down Sights), Steady Aim (Pressed 1x, Helddown)
+   |    (A)    |            A: Aim Down Sights, Steady Aim                       (Pressed 1x, Helddown)
    |           |            B: Fire/Throw
    |           |
    |  -  &  +  |         Plus: Mouse Wheel Down
    |           |         Home: Coms Wheel
    |     #     |        Minus: Mouse Wheel Up
    |           |
-   |    (1)    |          One: Primary Weapon, Grenades, Proximity VOIP (Pressed 1x, Pressed 2x, Helddown)
+   |    (1)    |          One: Primary Weapon, Grenades, Proximity VOIP          (Pressed 1x, Pressed 2x, Helddown)
    |           |
-   |    (2)    |          Two: Secondary Weapon, Equipment, Radio VOIP (Pressed 1x, Pressed 2x, Helddown)
+   |    (2)    |          Two: Secondary Weapon, Equipment, Radio VOIP           (Pressed 1x, Pressed 2x, Helddown)
    |           |
    |  o o o o  |  Nunchuk   C: Jump
    |    Wii    |            Z: Crouch
@@ -79,8 +79,6 @@ Endif
 Key.N                =    Wiimote.Up and Wiimote.Nunchuk.CButton
 Key.F                =    Wiimote.Up and not Wiimote.Nunchuk.CButton
 Key.J                =    Keepdown(not Wiimote.Up, 250ms) and Helddown(Wiimote.Up, 25ms) and not Wiimote.Nunchuk.CButton
-Key.6                =    Wiimote.Down and Wiimote.Nunchuk.CButton
-Key.R                =    Wiimote.Down and not Wiimote.Nunchuk.CButton
 Key.5                =    Wiimote.Left and Wiimote.Nunchuk.CButton
 Key.X                =    Keepdown(Wiimote.Left, 250ms) and Helddown(not Wiimote.Left, 100ms) and not Wiimote.Nunchuk.CButton
 Key.3                =    Keepdown(not Wiimote.Left, 250ms) and Helddown(Wiimote.Left, 25ms) and not Wiimote.Nunchuk.CButton
@@ -89,6 +87,8 @@ Key.8                =    Wiimote.Right and Wiimote.Nunchuk.CButton
 Key.7                =    Keepdown(Wiimote.Right, 250ms) and Helddown(not Wiimote.Right, 100ms) and not Wiimote.Nunchuk.CButton
 Key.3                =    Keepdown(not Wiimote.Right, 250ms) and Helddown(Wiimote.Right, 25ms) and not Wiimote.Nunchuk.CButton
 Key.E                =    Helddown(Wiimote.Right, 150ms) and not Wiimote.Nunchuk.CButton
+Key.6                =    Wiimote.Down and Wiimote.Nunchuk.CButton
+Key.R                =    Wiimote.Down and not Wiimote.Nunchuk.CButton
 
 Key.Ctrl             =    Wiimote.A and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 350ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 350ms)
 Mouse.RightButton    =    Keepdown(Wiimote.A, 150ms) but not Wiimote.A
@@ -111,14 +111,13 @@ Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.
 Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
 Key.B                =    Helddown(Wiimote.Two, 150ms)
 
-Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
-Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
-Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
-Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
-
-Key.Shift             =    ((abs(Wiimote.Nunchuk.JoyX) > 0.35) or (abs(Wiimote.Nunchuk.JoyY) > 0.35)) but not (Wiimote.Nunchuk.JoyY < -0.65)
-Key.Ctrl             =    Wiimote.Nunchuk.JoyY < -0.65
 Key.Alt              =    Wiimote.Nunchuk.CButton
 Key.Space            =    Keepdown(Wiimote.Nunchuk.ZButton, 250ms) and Helddown(not Wiimote.Nunchuk.ZButton, 100ms)
 Key.Z                =    Keepdown(not Wiimote.Nunchuk.ZButton, 250ms) and Helddown(Wiimote.Nunchuk.ZButton, 25ms)
 Key.C                =    Helddown(Wiimote.Nunchuk.ZButton, 150ms)
+Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
+Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
+Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
+Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
+Key.Ctrl             =    Wiimote.Nunchuk.JoyY < -0.65
+Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) > 0.35) or (abs(Wiimote.Nunchuk.JoyY) > 0.35)) but not (Wiimote.Nunchuk.JoyY < -0.65)

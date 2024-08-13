@@ -69,6 +69,10 @@ Key.P                =    Wiimote.A and Keepdown(Wiimote.Nunchuk.CButton, 250ms)
 Key.O                =    Wiimote.A and Keepdown(not Wiimote.Nunchuk.CButton, 250ms) and Helddown(Wiimote.Nunchuk.CButton, 25ms)
 Mouse.LeftButton     =    Wiimote.B
 
+Mouse.WheelDown      =    Keepdown(Wiimote.Plus, 250ms) and not Wiimote.Plus
+Key.Y                =    Helddown(Wiimote.Plus, 250ms) and Wiimote.Nunchuk.CButton
+Mouse.XButton2       =    Helddown(Wiimote.Plus, 150ms) and not Wiimote.Nunchuk.CButton
+
 If (Wiimote.Home but not Helddown(Wiimote.Home,10ms)) and Wiimote.Nunchuk.CButton then var.Counter += 1
 If (Helddown(Wiimote.Home, 250ms)) or (Helddown(not Wiimote.Home, 500ms) and var.Counter > 0) then var.Counter = 0
 
@@ -85,9 +89,6 @@ Key.8                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 8
 Key.9                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 9)
 Key.0                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 10)
 
-Mouse.WheelDown      =    Keepdown(Wiimote.Plus, 250ms) and not Wiimote.Plus
-Key.Y                =    Helddown(Wiimote.Plus, 250ms) and Wiimote.Nunchuk.CButton
-Mouse.XButton2       =    Helddown(Wiimote.Plus, 150ms) and not Wiimote.Nunchuk.CButton
 Key.N                =    Helddown(Wiimote.Minus, 150ms) and not Wiimote.Nunchuk.CButton
 Key.Backspace        =    Helddown(Wiimote.Minus, 250ms) and Wiimote.Nunchuk.CButton
 Mouse.WheelUp        =    Keepdown(Wiimote.Minus, 250ms) and not Wiimote.Minus
@@ -101,11 +102,10 @@ Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.
 Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms) and Helddown(not Wiimote.One, 250ms)
 Key.6                =    Helddown(Wiimote.Two, 150ms) and Helddown(not Wiimote.One, 250ms)
 
+Key.Alt              =    Helddown(Wiimote.Nunchuk.CButton, 150ms)
+Key.Ctrl             =    Wiimote.Nunchuk.ZButton
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
-
 Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
-Key.Alt              =    Helddown(Wiimote.Nunchuk.CButton, 150ms)
-Key.Ctrl             =    Wiimote.Nunchuk.ZButton

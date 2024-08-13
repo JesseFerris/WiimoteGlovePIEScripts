@@ -55,6 +55,19 @@ Else
 Endif
 
 // Button Mapping
+If (Wiimote.Up but not Helddown(Wiimote.Up,10ms)) then var.Counter += 1
+If (Helddown(Wiimote.Up, 250ms)) or (Helddown(not Wiimote.Up, 500ms) and var.Counter > 0) then var.Counter = 0
+
+Key.F1               = (var.Counter = 1)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 1x.
+Key.F2               = (var.Counter = 2)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 2x.
+Key.F3               = (var.Counter = 3)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 3x.
+Key.F4               = (var.Counter = 4)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 4x.
+Key.F5               = (var.Counter = 5)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 5x.
+Key.F6               = (var.Counter = 6)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 6x.
+Key.F7               = (var.Counter = 7)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 7x.
+Key.F8               = (var.Counter = 8)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 8x.
+Key.F9               = (var.Counter = 9)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 9x.
+Key.F10              = (var.Counter = 10) and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 10x.
 Key.C                =    Helddown(Wiimote.Up, 250ms)
 Key.R                =    Keepdown(Wiimote.Down, 250ms) and Helddown(not Wiimote.Down, 100ms)
 Mouse.MiddleButton   =    Keepdown(not Wiimote.Down, 250ms) and Helddown(Wiimote.Down, 25ms)
@@ -84,26 +97,11 @@ Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.
 Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms) and Helddown(not Wiimote.One, 250ms)
 Key.B                =    Helddown(Wiimote.Two, 150ms) and Helddown(not Wiimote.One, 250ms)
 
+Key.Z                =    Wiimote.Nunchuk.CButton
+Key.Ctrl             =    Helddown(Wiimote.Nunchuk.ZButton, 150ms)
+Key.Space            =    Keepdown(Wiimote.Nunchuk.ZButton, 250ms) and not Wiimote.Nunchuk.Z
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
-
-Key.Shift            =    (Wiimote.Nunchuk.JoyY < -0.65 and Helddown(not Wiimote.A, 500ms))
-Key.Z                =    Wiimote.Nunchuk.CButton
-Key.Ctrl             =    Helddown(Wiimote.Nunchuk.ZButton, 150ms)
-Key.Space            =    Keepdown(Wiimote.Nunchuk.ZButton, 250ms) and not Wiimote.Nunchuk.Z
-
-If (Wiimote.Up but not Helddown(Wiimote.Up,10ms)) then var.Counter += 1
-If (Helddown(Wiimote.Up, 250ms)) or (Helddown(not Wiimote.Up, 500ms) and var.Counter > 0) then var.Counter = 0
-
-Key.F1  = (var.Counter = 1)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 1 time.
-Key.F2  = (var.Counter = 2)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 2 times.
-Key.F3  = (var.Counter = 3)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 3 times.
-Key.F4  = (var.Counter = 4)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 4 times.
-Key.F5  = (var.Counter = 5)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 5 times.
-Key.F6  = (var.Counter = 6)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 6 times.
-Key.F7  = (var.Counter = 7)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 7 times.
-Key.F8  = (var.Counter = 8)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 8 times.
-Key.F9  = (var.Counter = 9)  and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 9 times.
-Key.F10 = (var.Counter = 10) and Helddown(not Wiimote.Up, 250ms) // Wii remote Up pressed 10 times.
+Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65 and Helddown(not Wiimote.A, 500ms)
