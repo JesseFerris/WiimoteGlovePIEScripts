@@ -20,26 +20,26 @@
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
     In-Game Settings: Default Bindings.
-    ___________
-   | @   _     |  D-Pad    Up: Keyboard F
-   |   _| |_   |         Left: Keyboard Q
-   |  |_   _|  |        Right: Keyboard E
-   |    |_|    |         Down: Keyboard R
-   |           |
-   |    (A)    |            A: Mouse Right Button
-   |           |            B: Mouse Left Button
-   |           |
-   |  -  &  +  |         Plus: Mouse Wheel Down
-   |           |         Home: Keyboard Escape
-   |     #     |        Minus: Mouse Wheel Up
-   |           |
-   |    (1)    |          One: Keyboard 1, 3, 5    (Pressed 1x, Pressed 2x, Helddown)
-   |           |
-   |    (2)    |          Two: Keyboard 2, 4, 6    (Pressed 1x, Pressed 2x, Helddown)
-   |           |
-   |  o o o o  |  Nunchuk   C: Keyboard Space
-   |    Wii    |            Z: Keyboard Ctrl
-   |___________|          Joy: Keyboard WASD, Alt, Shift
+       ___________
+      | @   _     |        Up: Keyboard F
+      |   _| |_   |      Left: Keyboard Q
+      |  |_   _|  |     Right: Keyboard E
+      |    |_|    |      Down: Keyboard R
+      |           |
+      |    (A)    |         A: Mouse Right Button
+      |           |         B: Mouse Left Button
+      |           |
+      |  -  &  +  |      Plus: Mouse Wheel Down
+      |           |      Home: Keyboard Escape
+      |     #     |     Minus: Mouse Wheel Up
+      |           |
+      |    (1)    |       One: Keyboard 1, 3, 5    (Pressed 1x, Pressed 2x, Helddown)
+      |           |
+      |    (2)    |       Two: Keyboard 2, 4, 6    (Pressed 1x, Pressed 2x, Helddown)
+      |           |
+      |  o o o o  |         C: Keyboard Space
+      |    Wii    |         Z: Keyboard Ctrl
+      |___________|       Joy: Keyboard WASD, Alt, Shift
 
 */
 

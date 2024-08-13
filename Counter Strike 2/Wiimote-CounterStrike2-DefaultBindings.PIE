@@ -20,26 +20,26 @@
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
     In-Game Settings: Default Bindings.
-    ___________
-   | @   _     |  D-Pad    Up: Drop Weapon
-   |   _| |_   |         Left: Reload
-   |  |_   _|  |        Right: Inspect Weapon
-   |    |_|    |         Down: Use
-   |           |
-   |    (A)    |            A: Secondary Fire
-   |           |            B: Fire
-   |           |
-   |  -  &  +  |         Plus: Select Next Weapon, Re-buy                        (Pressed 1x, Helddown)
-   |           |         Home: Buy-Menu, Scoreboard                              (Pressed 1x, Helddown)
-   |     #     |        Minus: Select Previous Weapon, Auto-Buy                  (Pressed 1x, Helddown)
-   |           |
-   |    (1)    |          One: Primary Weapon, Cycle Grenades, Mele Weapons      (Pressed 1x, Pressed 2x, Helddown)
-   |           |
-   |    (2)    |          Two: Secondary Weapon, HE Grenades, Explosive Traps    (Pressed 1x, Pressed 2x, Helddown)
-   |           |
-   |  o o o o  |  Nunchuk   C: Jump
-   |    Wii    |            Z: Crouch
-   |___________|          Joy: Move, Walk
+       ___________
+      | @   _     |        Up: Drop Weapon
+      |   _| |_   |      Left: Reload
+      |  |_   _|  |     Right: Inspect Weapon
+      |    |_|    |      Down: Use
+      |           |
+      |    (A)    |         A: Secondary Fire
+      |           |         B: Fire
+      |           |
+      |  -  &  +  |      Plus: Select Next Weapon, Re-buy                        (Pressed 1x, Helddown)
+      |           |      Home: Buy-Menu, Scoreboard                              (Pressed 1x, Helddown)
+      |     #     |     Minus: Select Previous Weapon, Auto-Buy                  (Pressed 1x, Helddown)
+      |           |
+      |    (1)    |       One: Primary Weapon, Cycle Grenades, Mele Weapons      (Pressed 1x, Pressed 2x, Helddown)
+      |           |
+      |    (2)    |       Two: Secondary Weapon, HE Grenades, Explosive Traps    (Pressed 1x, Pressed 2x, Helddown)
+      |           |
+      |  o o o o  |       Joy: Move, Walk
+      |    Wii    |         C: Jump
+      |___________|         Z: Crouch
 
 */
 
@@ -99,10 +99,10 @@ Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.
 Key.6                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
 Key.5                =    Helddown(Wiimote.Two, 150ms)
 
-Key.Space            =    Wiimote.Nunchuk.CButton
-Key.Ctrl             =    Wiimote.Nunchuk.ZButton
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
+Key.Space            =    Wiimote.Nunchuk.CButton
+Key.Ctrl             =    Wiimote.Nunchuk.ZButton
