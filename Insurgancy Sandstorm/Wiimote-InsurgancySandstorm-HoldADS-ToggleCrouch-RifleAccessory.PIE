@@ -1,5 +1,5 @@
 ﻿/*
-    Wiimote-InsurgancySandstorm-HoldADS-ToggleCrouch.PIE
+    Wiimote-InsurgancySandstorm-HoldADS-ToggleCrouch-RifleAccessory.PIE
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -18,8 +18,29 @@
 
 /*
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
-    Description: Emulates Mouse and Keyboard from Wiimote controller.
-    Game Settings: Hold ADS. Toggle Crouch.
+    Description: Emulates Mouse and Keyboard from Wiimote controller input.
+    In-Game Settings: Bind Mouse-Right Button to Aim Down Sights (Hold). Bind Ctrl to Crouch/Slide (Toggle). Optional: Bind Alt to Walk (Hold) then un-comment the Key.Alt line under Button Mapping section below for the best experience.
+     ___________
+    | @   _     |        Up: Jump, Melee Attack/Cycle Optics, Toggle Siderail Upgrade                   (Pressed 1x, Helddown, Pressed with Wiimote B)
+    |   _| |_   |      Left: Lean Left                                                                  (Pressed 1x, Helddown)
+    |  |_   _|  |     Right: Lean Right                                                                 (Pressed 1x, Helddown)
+    |    |_|    |      Down: Prone, Crouch, Toggle Underbarrel Upgrade                                  (Pressed 1x, Helddown, Pressed with Wiimote B)
+    |           |
+    |    (A)    |         A: Aim Down Sights (Toggle), Focus (Hold)                                     (Pressed 1x, Helddown)
+    |           |         B: Use                                                                        (Pressed with Wiimote A)
+    |           |
+    |  -  &  +  |      Plus: Select Next Weapon
+    |           |      Home: Keyboard Escape, Scoreboard/Tactical Map                                   (Pressed 1x, Helddown)
+    |     #     |     Minus: Select Previous Weapon
+    |           |
+    |    (1)    |       One: Select Primary, Select Knife, Select Binoculars                            (Pressed 1x, Pressed 2x, Helddown)
+    |           |
+    |    (2)    |       Two: Select Secondary, Select Explosive, Fire Support Menu                      (Pressed 1x, Pressed 2x, Helddown)
+    |           |
+    |  o o o o  |       Joy: Move, Walk, Run
+    |    Wii    |         C: Reload/Quick Reload/Inspect Ammo, Cycle Fire Mode                          (Pressed 1x/2x/held in game, Pressed with Wiimote B)
+    |___________|         Z: Fire
+
 */
 
 // Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
@@ -55,19 +76,18 @@ Else
 Endif
 
 // Button Mapping
-Key.C                =    Keepdown(Wiimote.Up, 250ms) and Helddown(not Wiimote.Up, 100ms)
-Key.B                =    Keepdown(not Wiimote.Up, 250ms) and Helddown(Wiimote.Up, 25ms)
-Mouse.MiddleButton   =    Helddown(Wiimote.Up, 250ms)
-Key.F                =    Helddown(Wiimote.Down, 150ms)
-Key.R                =    Wiimote.Down
-Key.X                =    Keepdown(Wiimote.Left, 150ms) and not Wiimote.Left
-Key.Q                =    Helddown(Wiimote.Left, 150ms)
-Key.H                =    Keepdown(Wiimote.Right, 150ms) and not Wiimote.Right
-Key.E                =    Helddown(Wiimote.Right, 150ms)
+Key.Space            =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up and Helddown(not Wiimote.B, 250ms)
+Key.H                =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up and Wiimote.B
+Mouse.MiddleButton   =    Helddown(Wiimote.Up, 150ms) and Helddown(not Wiimote.B, 250ms)
+Key.Q                =    Wiimote.Left
+Key.E                =    Wiimote.Right
+Key.Ctrl             =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down and Helddown(not Wiimote.B, 250ms)
+Key.G                =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down and Wiimote.B
+Key.Z                =    Helddown(Wiimote.Down, 150ms)
 
 Key.Shift            =    Helddown(Wiimote.A, 150ms) and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 350ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 350ms)
-Mouse.RightButton    =    Wiimote.A
-Mouse.LeftButton     =    Wiimote.B
+Mouse.RightButton    =    Wiimote.A and Helddown(not Wiimote.B, 250ms)
+Key.F                =    Wiimote.A and Wiimote.B
 
 Mouse.WheelDown      =    Wiimote.Plus
 Key.M                =    Helddown(Wiimote.Plus, 250ms)
@@ -79,18 +99,20 @@ Mouse.WheelUp        =    Wiimote.Minus
 Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)
 Key.5                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
 Key.4                =    Helddown(Wiimote.One, 150ms) and Helddown(not Wiimote.Two, 250ms)
+
 Key.V                =    Helddown(Wiimote.One and Wiimote.Two, 250ms)
+
 Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.Two, 100ms)
 Key.3                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
 Key.J                =    Helddown(Wiimote.Two, 150ms) and Helddown(not Wiimote.One, 250ms)
 
-Key.Space            =    Wiimote.Nunchuk.CButton
-Key.Z                =    Helddown(Wiimote.Nunchuk.ZButton, 150ms)
-Key.Ctrl             =    Keepdown(Wiimote.Nunchuk.ZButton, 250ms) and not Wiimote.Nunchuk.Z
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
-Key.Alt              =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
 Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65 and Helddown(not Wiimote.A, 500ms) and Helddown(not Wiimote.Home, 250ms)
+//Key.Alt              =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65)) and not Wiimote.Home
 
+Key.R                =    Wiimote.Nunchuk.CButton and not Wiimote.B
+Key.X                =    Wiimote.Nunchuk.CButton and Wiimote.B
+Mouse.LeftButton     =    Wiimote.Nunchuk.Z

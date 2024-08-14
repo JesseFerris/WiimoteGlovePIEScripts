@@ -20,26 +20,26 @@
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
     In-Game Settings: Default Bindings.
-       ___________
-      | @   _     |        Up: Interact, Drop Item, Night Vision Goggles         (Pressed 1x or held in game, Pressed 2x, Pressed with Nunchuck C)
-      |   _| |_   |      Left: Fire Mode Selector, Lean left, Tac light          (Pressed 1x, Helddown, Pressed with Nunchuk C)
-      |  |_   _|  |     Right: Toggle Laser Mode, Lean Right, IR Illuminator     (Pressed 1x, Helddown, Pressed with Nunchuk C)
-      |    |_|    |      Down: Reload/Quickreload/Inspect Ammo, Laser            (Pressed 1x/2x/held in game, Pressed with Nunchuk C)
-      |           |
-      |    (A)    |         A: Aim Down Sights, Steady Aim                       (Pressed 1x, Helddown)
-      |           |         B: Fire/Throw
-      |           |
-      |  -  &  +  |      Plus: Mouse Wheel Down
-      |           |      Home: Coms Wheel
-      |     #     |     Minus: Mouse Wheel Up
-      |           |
-      |    (1)    |       One: Primary Weapon, Grenades, Proximity VOIP          (Pressed 1x, Pressed 2x, Helddown)
-      |           |
-      |    (2)    |       Two: Secondary Weapon, Equipment, Radio VOIP           (Pressed 1x, Pressed 2x, Helddown)
-      |           |
-      |  o o o o  |       Joy: Move, Run, Sprint
-      |    Wii    |         C: Jump
-      |___________|         Z: Crouch
+     ___________
+    | @   _     |        Up: Interact, Drop Item, Night Vision Goggles           (Pressed 1x or held in game, Pressed 2x, Pressed with Nunchuck C)
+    |   _| |_   |      Left: Fire Mode Selector, Lean left, Tac light            (Pressed 1x, Helddown, Pressed with Nunchuk C)
+    |  |_   _|  |     Right: Toggle Laser Mode, Lean Right, IR Illuminator       (Pressed 1x, Helddown, Pressed with Nunchuk C)
+    |    |_|    |      Down: Reload/Quickreload/Inspect Ammo, Laser              (Pressed 1x/2x/held in game, Pressed with Nunchuk C)
+    |           |
+    |    (A)    |         A: Aim Down Sights, Steady Aim                         (Pressed 1x, Helddown)
+    |           |         B: Fire/Throw
+    |           |
+    |  -  &  +  |      Plus: Mouse Wheel Down
+    |           |      Home: Coms Wheel
+    |     #     |     Minus: Mouse Wheel Up
+    |           |
+    |    (1)    |       One: Primary Weapon, Grenades, Proximity VOIP            (Pressed 1x, Pressed 2x, Helddown)
+    |           |
+    |    (2)    |       Two: Secondary Weapon, Equipment, Radio VOIP             (Pressed 1x, Pressed 2x, Helddown)
+    |           |
+    |  o o o o  |       Joy: Move, Run, Sprint
+    |    Wii    |         C: Jump
+    |___________|         Z: Crouch
 
 */
 
