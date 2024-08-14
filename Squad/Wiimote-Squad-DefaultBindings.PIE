@@ -92,8 +92,10 @@ Mouse.WheelDown      =    Helddown(Wiimote.Minus, 250ms) or (Keepdown(Wiimote.Mi
 Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms) and Helddown(not Wiimote.Two, 250ms)
 Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms) and Helddown(not Wiimote.Two, 250ms)
 Key.V                =    Helddown(Wiimote.One, 150ms) and Helddown(not Wiimote.Two, 250ms)
+
 Key.G                =    Helddown(Wiimote.One and Wiimote.Two, 250ms)
 Key.5                =    Keepdown(Wiimote.One and Wiimote.Two, 250ms) and Helddown(not (Wiimote.One and Wiimote.Two), 100ms)
+
 Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.Two, 100ms) and Helddown(not Wiimote.One, 250ms)
 Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms) and Helddown(not Wiimote.One, 250ms)
 Key.B                =    Helddown(Wiimote.Two, 150ms) and Helddown(not Wiimote.One, 250ms)
