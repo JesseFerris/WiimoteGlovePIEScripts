@@ -19,27 +19,28 @@
 /*
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
-    In-Game Settings: Bind Ctrl to Crouch/Slide (Toggle). Optional: Bind Alt to Walk (Hold) then un-comment the Key.Alt line under Button Mapping section below for the best experience.
+    In-Game Settings: Bind Ctrl to Crouch/Slide (Toggle).
+    Optional: For the best experience bind Alt to Walk (Hold) in-game, then in this script un-comment (remove the // in front of) the Key.Alt line under the Button Mapping section below.
      ___________
-    | @   _     |        Up: Jump, Melee Attack/Cycle Optics, Toggle Siderail Upgrade                   (Pressed 1x, Helddown, Pressed with Wiimote B)
-    |   _| |_   |      Left: Lean Left                                                                  (Pressed 1x, Helddown)
-    |  |_   _|  |     Right: Lean Right                                                                 (Pressed 1x, Helddown)
-    |    |_|    |      Down: Prone, Crouch, Toggle Underbarrel Upgrade                                  (Pressed 1x, Helddown, Pressed with Wiimote B)
+    | @   _     |           Up: Jump, Melee Attack/Cycle Optics, Toggle Siderail Upgrade    (Pressed 1x, Helddown, Pressed with Wiimote B)
+    |   _| |_   |         Left: Lean Left                                                   (Pressed 1x, Helddown)
+    |  |_   _|  |        Right: Lean Right                                                  (Pressed 1x, Helddown)
+    |    |_|    |         Down: Prone, Crouch, Toggle Underbarrel Upgrade                   (Pressed 1x, Helddown, Pressed with Wiimote B)
     |           |
-    |    (A)    |         A: Aim Down Sights (Toggle), Focus (Hold)                                     (Pressed 1x, Helddown)
-    |           |         B: Use                                                                        (Pressed with Wiimote A)
+    |    (A)    |            A: Aim Down Sights (Toggle), Focus (Hold)                      (Pressed 1x, Helddown)
+    |           |            B: Use                                                         (Pressed with Wiimote A)
     |           |
-    |  -  &  +  |      Plus: Select Next Weapon
-    |           |      Home: Keyboard Escape, Scoreboard/Tactical Map                                   (Pressed 1x, Helddown)
-    |     #     |     Minus: Select Previous Weapon
+    |  -  &  +  |         Plus: Select Next Weapon
+    |           |         Home: Keyboard Escape, Scoreboard/Tactical Map                    (Pressed 1x, Helddown)
+    |     #     |        Minus: Select Previous Weapon
     |           |
-    |    (1)    |       One: Select Primary, Select Knife, Select Binoculars                            (Pressed 1x, Pressed 2x, Helddown)
+    |    (1)    |          One: Select Primary, Select Knife, Select Binoculars             (Pressed 1x, Pressed 2x, Helddown)
+    |           |    One & Two: Voice Chat Team Radio                                       (Helddown)
+    |    (2)    |          Two: Select Secondary, Select Explosive, Fire Support Menu       (Pressed 1x, Pressed 2x, Helddown)
     |           |
-    |    (2)    |       Two: Select Secondary, Select Explosive, Fire Support Menu                      (Pressed 1x, Pressed 2x, Helddown)
-    |           |
-    |  o o o o  |       Joy: Move, Walk, Run
-    |    Wii    |         C: Reload/Quick Reload/Inspect Ammo, Cycle Fire Mode                          (Pressed 1x/2x/held in game, Pressed with Wiimote B)
-    |___________|         Z: Fire
+    |  o o o o  |          Joy: Move, Walk, Run
+    |    Wii    |            C: Reload/Quick Reload/Inspect Ammo, Cycle Fire Mode           (Pressed 1x/2x/held in game, Pressed with Wiimote B)
+    |___________|            Z: Fire
 
 */
 

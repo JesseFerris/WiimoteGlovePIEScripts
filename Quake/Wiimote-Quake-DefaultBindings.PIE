@@ -1,5 +1,5 @@
 ﻿/*
-    Wiimote-Template.PIE
+    Wiimote-Quake-DefaultBindings.PIE
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -21,25 +21,25 @@
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
     In-Game Settings: Default Bindings.
      ___________
-    | @   _     |       Up: Keyboard F
-    |   _| |_   |     Left: Keyboard Q
-    |  |_   _|  |    Right: Keyboard E
-    |    |_|    |     Down: Keyboard R
+    | @   _     |       Up: Axe, Thunderbolt                     (Pressed 1x, Helddown)
+    |   _| |_   |     Left: Nailgun, Super Nailgun               (Pressed 1x, Helddown)
+    |  |_   _|  |    Right: Grenade Launcher, Rocket Launcher    (Pressed 1x, Helddown)
+    |    |_|    |     Down: Shotgun, Super Shotgun               (Pressed 1x, Helddown)
     |           |
-    |    (A)    |        A: Mouse Right Button
-    |           |        B: Mouse Left Button
+    |    (A)    |        A: Attack
+    |           |        B: Attack
     |           |
-    |  -  &  +  |     Plus: Mouse Wheel Down
-    |           |     Home: Keyboard Escape
-    |     #     |    Minus: Mouse Wheel Up
+    |  -  &  +  |     Plus: Next Weapon
+    |           |     Home: Weapon Wheel
+    |     #     |    Minus: Previous Weapon
     |           |
-    |    (1)    |      One: Keyboard 1, 3, 5             (Pressed 1x, Pressed 2x, Helddown)
+    |    (1)    |      One: Axe                                  (Pressed 1x, Pressed 2x, Helddown)
     |           |
-    |    (2)    |      Two: Keyboard 2, 4, 6             (Pressed 1x, Pressed 2x, Helddown)
+    |    (2)    |      Two: Shotgun                              (Pressed 1x, Pressed 2x, Helddown)
     |           |
-    |  o o o o  |      Joy: Keyboard WASD, Alt, Shift
-    |    Wii    |        C: Keyboard Space
-    |___________|        Z: Keyboard Ctrl
+    |  o o o o  |      Joy: Move, Walk
+    |    Wii    |        C: Jump
+    |___________|        Z: Swim Down
 
 */
 
@@ -52,8 +52,8 @@ var.BoxWidth = 20
 var.BoxHeight = 15
 
 // Sensitivity Adjustments
-var.Sensitivity = 15
-var.AutoTurnSpeed = 30
+var.Sensitivity = 30
+var.AutoTurnSpeed = 80
 
 // Pointer Tracking, Auto-turn, Mouse Output
 If Helddown(Wiimote.PointerVisible, 750ms)
@@ -76,32 +76,31 @@ Else
 Endif
 
 // Button Mapping
-Key.F                =    Wiimote.Up
-Key.Q                =    Wiimote.Left
-Key.E                =    Wiimote.Right
-Key.R                =    Wiimote.Down
+Key.1                =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up
+Key.8                =    Helddown(Wiimote.Up, 150ms)
+Key.4                =    Keepdown(Wiimote.Left, 250ms) and not Wiimote.Left
+Key.5                =    Helddown(Wiimote.Left, 150ms)
+Key.6                =    Keepdown(Wiimote.Right, 250ms) and not Wiimote.Right
+Key.7                =    Helddown(Wiimote.Right, 150ms)
+Key.2                =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down
+Key.3                =    Helddown(Wiimote.Down, 150ms)
 
-Mouse.RightButton    =    Wiimote.A
+Mouse.LeftButton     =    Wiimote.A
 Mouse.LeftButton     =    Wiimote.B
 
-Mouse.WheelDown      =    Wiimote.Plus
-Key.Esc              =    Wiimote.Home
-Mouse.WheelUp        =    Wiimote.Minus
+Mouse.WheelUp        =    Wiimote.Plus
+Key.Q                =    Wiimote.Home
+Mouse.WheelDown      =    Wiimote.Minus
 
-Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms)
-Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms)
-Key.5                =    Helddown(Wiimote.One, 150ms)
+Key.1                =    Wiimote.One
 
-Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.Two, 100ms)
-Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
-Key.6                =    Helddown(Wiimote.Two, 150ms)
+Key.2                =    Wiimote.Two
 
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
-Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65
-Key.Alt              =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
+Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
 
 Key.Space            =    Wiimote.Nunchuk.CButton
-Key.Ctrl             =    Wiimote.Nunchuk.ZButton
+Key.Z                =    Wiimote.Nunchuk.ZButton

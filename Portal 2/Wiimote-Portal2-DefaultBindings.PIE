@@ -18,8 +18,29 @@
 
 /*
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
-    Description: Emulates Mouse and Keyboard from Wiimote controller.
-    Game Settings: Default Bindings.
+    Description: Emulates Mouse and Keyboard from Wiimote controller input.
+    In-Game Settings: Default Bindings.
+     ___________
+    | @   _     |       Up: N/A
+    |   _| |_   |     Left: N/A
+    |  |_   _|  |    Right: N/A
+    |    |_|    |     Down: Use Item
+    |           |
+    |    (A)    |        A: Fire Orange Portal
+    |           |        B: Fire Blue Portal
+    |           |
+    |  -  &  +  |     Plus: Zoom In
+    |           |     Home: Toggle Zoom
+    |     #     |    Minus: Zoom Out
+    |           |
+    |    (1)    |      One: Quick Save
+    |           |
+    |    (2)    |      Two: Quick Load
+    |           |
+    |  o o o o  |      Joy: Move
+    |    Wii    |        C: Jump
+    |___________|        Z: Duck
+
 */
 
 // Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
@@ -60,17 +81,17 @@ Key.E                =    Wiimote.Down
 Mouse.RightButton    =    Wiimote.A
 Mouse.LeftButton     =    Wiimote.B
 
-Mouse.WheelDown      =    Wiimote.Plus
+Mouse.WheelUp        =    Wiimote.Plus
 Mouse.MiddleButton   =    Wiimote.Home
-Mouse.WheelUp        =    Wiimote.Minus
+Mouse.WheelDown      =    Wiimote.Minus
 
 Key.F6               =    Wiimote.One
 Key.F7               =    Wiimote.Two
 
-Key.Ctrl             =    Wiimote.Nunchuk.CButton
-Key.Space            =    Wiimote.Nunchuk.ZButton
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 
+Key.Space            =    Wiimote.Nunchuk.CButton
+Key.Ctrl             =    Wiimote.Nunchuk.ZButton

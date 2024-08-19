@@ -21,25 +21,25 @@
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
     In-Game Settings: Default Bindings.
      ___________
-    | @   _     |        Up: Jump, Drop                                          (Pressed 1x, Pressed with Nunchuk C)
-    |   _| |_   |      Left: Use
-    |  |_   _|  |     Right: Inspect Weapon
-    |    |_|    |      Down: Crouch
+    | @   _     |       Up: Jump, Drop                                           (Pressed 1x, Pressed with Nunchuk B)
+    |   _| |_   |     Left: Use
+    |  |_   _|  |    Right: Inspect Weapon
+    |    |_|    |     Down: Crouch
     |           |
-    |    (A)    |         A: Secondary Fire
-    |           |         B: Fire
+    |    (A)    |        A: Secondary Fire
+    |           |        B: Fire
     |           |
-    |  -  &  +  |      Plus: Select Next Weapon, Re-buy                          (Pressed 1x, Helddown)
-    |           |      Home: Buy-Menu, Scoreboard                                (Pressed 1x, Helddown)
-    |     #     |     Minus: Select Previous Weapon, Auto-Buy                    (Pressed 1x, Helddown)
+    |  -  &  +  |     Plus: Select Next Weapon, Re-buy                           (Pressed 1x, Helddown)
+    |           |     Home: Buy-Menu, Scoreboard                                 (Pressed 1x, Helddown)
+    |     #     |    Minus: Select Previous Weapon, Auto-Buy                     (Pressed 1x, Helddown)
     |           |
-    |    (1)    |       One: Primary Weapon, Cycle Grenades, Mele Weapons        (Pressed 1x, Pressed 2x, Helddown)
+    |    (1)    |      One: Primary Weapon, Cycle Grenades, Mele Weapons         (Pressed 1x, Pressed 2x, Helddown)
     |           |
-    |    (2)    |       Two: Secondary Weapon, HE Grenades, Explosive Traps      (Pressed 1x, Pressed 2x, Helddown)
+    |    (2)    |      Two: Secondary Weapon, HE Grenades, Explosive Traps       (Pressed 1x, Pressed 2x, Helddown)
     |           |
-    |  o o o o  |       Joy: Move, Walk
-    |    Wii    |         C: Jump
-    |___________|         Z: Crouch
+    |  o o o o  |      Joy: Move, Walk
+    |    Wii    |        C: Reload
+    |___________|        Z: Fire
 
 */
 
