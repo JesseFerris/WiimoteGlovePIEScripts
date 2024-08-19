@@ -29,6 +29,6 @@ https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file (mirror)
               \    \     Wii     \
                \    \_____________\
                 \   |              |
-                 \  |   + \--\ +   |
+                 \  |   O \--\ O   |
                   \ |______________|
 ```
