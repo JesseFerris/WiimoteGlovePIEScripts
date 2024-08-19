@@ -17,7 +17,7 @@ https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file (mirror)
     \  \             \
      \  \     (A)     \
      |   \             \
-     \    \  _   &   +  \
+     \    \  -   &   +  \
       \    \             \
        \    \      #      \
         \    \             \
