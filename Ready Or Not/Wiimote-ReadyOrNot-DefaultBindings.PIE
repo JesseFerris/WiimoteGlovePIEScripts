@@ -21,21 +21,21 @@
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
     In-Game Settings: Default Bindings.
      ___________
-    | @   _     |       Up: Interact/Yell For Compliance, Melee                                            (Pressed 1x or Helddown, Pressed 2x)
-    |   _| |_   |     Left: Lean Left, Night Vision                                                        (Helddown, Pressed With Nunchuck C)
-    |  |_   _|  |    Right: Lean Right, Toggle Laser/Light Attachment                                      (Helddown, Pressed With Nunchuck C)
-    |    |_|    |     Down: Fire Select/Check Fire Mode, Reload/Quick Reload/Check Magazine                (Pressed 1x/Helddown In-Game, Pressed with Nunchuk C 1x/2x/Helddown In-Game)
+    | @   _     |       Up: Interact/Yell For Compliance, Melee                                   (Pressed 1xHelddown, Pressed 2x)
+    |   _| |_   |     Left: Lean Left, Night Vision                                               (Helddown, Pressed With Nunchuck C)
+    |  |_   _|  |    Right: Lean Right, Toggle Laser/Light Attachment                             (Helddown, Pressed With Nunchuck C)
+    |    |_|    |     Down: Fire Select/Check Fire Mode, Reload/Quick Reload/Check Magazine       (Pressed 1x/Helddown, Pressed with Nunchuk C 1x/2x/Helddown)
     |           |
-    |    (A)    |        A: ADS (Aim Down Sights), Toggle Secondary Sight, Toggle Canted Sight             (Helddown, Pressed with Nunchuk C 1x/2x)
+    |    (A)    |        A: ADS (Aim Down Sights), Toggle Secondary Sight, Toggle Canted Sight    (Helddown, Pressed with Nunchuk C 1x/2x)
     |           |        B: Fire
     |           |
-    |  -  &  +  |     Plus: Cycle Previous Element, Ready Up, Vote Yes                                     (Pressed 1x, Helddown, Helddown with Nunchcuk C)
+    |  -  &  +  |     Plus: Cycle Previous Element, Ready Up, Vote Yes                            (Pressed 1x, Helddown, Helddown with Nunchcuk C)
     |           |     Home: Keyboard Escape
-    |     #     |    Minus: Cycle Next Element, Keyboard Backspace, Vote No                                (Pressed 1x, Helddown, Helddown with Nunchcuk C)
+    |     #     |    Minus: Cycle Next Element, Keyboard Backspace, Vote No                       (Pressed 1x, Helddown, Helddown with Nunchcuk C)
     |           |
-    |    (1)    |      One: Primary Weapon, Equip Grenade, Equip Long Tactical                             (Pressed 1x, Pressed 2x, Helddown)
+    |    (1)    |      One: Primary Weapon, Equip Grenade, Equip Long Tactical                    (Pressed 1x, Pressed 2x, Helddown)
     |           |
-    |    (2)    |      Two: Secondary Weapon, Equip Tactical Device, Equip Misc.                           (Pressed 1x, Pressed 2x, Helddown)
+    |    (2)    |      Two: Secondary Weapon, Equip Tactical Device, Equip Misc.                  (Pressed 1x, Pressed 2x, Helddown)
     |           |
     |  o o o o  |      Joy: Move, Walk
     |    Wii    |        C: Free Lean
@@ -90,11 +90,11 @@ Key.P                =    Wiimote.A and Keepdown(Wiimote.Nunchuk.CButton, 250ms)
 Key.O                =    Wiimote.A and Keepdown(not Wiimote.Nunchuk.CButton, 250ms) and Helddown(Wiimote.Nunchuk.CButton, 25ms)
 Mouse.LeftButton     =    Wiimote.B
 
-Mouse.WheelDown      =    Keepdown(Wiimote.Plus, 250ms) and not Wiimote.Plus
-Key.PageUp           =    Helddown(Wiimote.Plus, 250ms) and Wiimote.Nunchuk.CButton
-Key.Y                =    Helddown(Wiimote.Plus, 250ms) and not Wiimote.Nunchuk.CButton
+Key.BackSpace        =    Helddown(Wiimote.Minus, 250ms) and not Wiimote.Nunchuk.CButton
+Key.PageDown         =    Helddown(Wiimote.Minus, 250ms) and Wiimote.Nunchuk.CButton
+Mouse.WheelUp        =    Keepdown(Wiimote.Minus, 250ms) and Wiimote.Minus
 
-Key.Tab              =    Wiimote.Home and not Wiimote.Nunchuk.CButton
+Key.Tab              =    Wiimote.Home and not Wiimote.Nunchuk.CButton and Helddown(not key.Shift, 500ms)
 Mouse.MiddleButton   =    Helddown(Wiimote.Home and Wiimote.Nunchuk.CButton, 250ms)
 If (Wiimote.Home but not Helddown(Wiimote.Home,10ms)) and Wiimote.Nunchuk.CButton then var.Counter += 1
 If (Helddown(Wiimote.Home, 250ms)) or (Helddown(not Wiimote.Home, 500ms) and var.Counter > 0) then var.Counter = 0
@@ -109,9 +109,9 @@ Key.8                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 8
 Key.9                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 9)
 Key.0                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 10)
 
-Key.BackSpace        =    Helddown(Wiimote.Minus, 250ms) and not Wiimote.Nunchuk.CButton
-Key.PageDown         =    Helddown(Wiimote.Minus, 250ms) and Wiimote.Nunchuk.CButton
-Mouse.WheelUp        =    Keepdown(Wiimote.Minus, 250ms) and Wiimote.Minus
+Mouse.WheelDown      =    Keepdown(Wiimote.Plus, 250ms) and not Wiimote.Plus
+Key.PageUp           =    Helddown(Wiimote.Plus, 250ms) and Wiimote.Nunchuk.CButton
+Key.Y                =    Helddown(Wiimote.Plus, 250ms) and not Wiimote.Nunchuk.CButton
 
 Key.1                =    Keepdown(Wiimote.One, 250ms) and Helddown(not Wiimote.One, 100ms) and Helddown(not Wiimote.Two, 250ms)
 Key.3                =    Keepdown(not Wiimote.One, 250ms) and Helddown(Wiimote.One, 25ms) and Helddown(not Wiimote.Two, 250ms)
@@ -128,7 +128,7 @@ Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
-Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65))
+Key.Shift            =    ((abs(Wiimote.Nunchuk.JoyX) < 0.45 and > 0.15) or (abs(Wiimote.Nunchuk.JoyY) < 0.45 and > 0.15)) but not ((abs(Wiimote.Nunchuk.JoyX) > 0.65) or (abs(Wiimote.Nunchuk.JoyY) > 0.65)) and Helddown(not Key.Tab, 500ms)
 
 Key.Alt              =    Helddown(Wiimote.Nunchuk.CButton, 150ms)
 Key.Ctrl             =    Wiimote.Nunchuk.ZButton
