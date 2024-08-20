@@ -33,9 +33,9 @@
     |           |     Home: Pause
     |     #     |    Minus: Previous Weapon
     |           |
-    |    (1)    |      One: Keyboard 1, 3, 5             (Pressed 1x, Pressed 2x, Helddown)
+    |    (1)    |      One: Weapon Category 1, 3, 5    (Pressed 1x, Pressed 2x, Helddown)
     |           |
-    |    (2)    |      Two: Keyboard 2, 4, 6             (Pressed 1x, Pressed 2x, Helddown)
+    |    (2)    |      Two: Weapon Category 2, 4, 6    (Pressed 1x, Pressed 2x, Helddown)
     |           |
     |  o o o o  |      Joy: Move, Sprint
     |    Wii    |        C: Jump

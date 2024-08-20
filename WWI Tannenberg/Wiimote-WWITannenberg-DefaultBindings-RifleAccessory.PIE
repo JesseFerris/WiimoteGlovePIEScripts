@@ -18,8 +18,29 @@
 
 /*
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
-    Description: Emulates Mouse and Keyboard from Wiimote controller.
-    Game Settings: Default Bindings.
+    Description: Emulates Mouse and Keyboard from Wiimote controller input.
+    In-Game Settings: Default Bindings.
+     ___________
+    | @   _     |       Up: Jump, Melee                                      (Pressed 1x, Helddown)
+    |   _| |_   |     Left: Throw Grenade                                    (Helddow)
+    |  |_   _|  |    Right: Ready Up
+    |    |_|    |     Down: Crouch, Prone
+    |           |
+    |    (A)    |        A: Aim Down Sights, Breath                          (Pressed 1x, Helddown)
+    |           |        B: Command, Use                                     (Helddown, Pressed With Wiimote A)
+    |           |
+    |  -  &  +  |     Plus: Previous Weapon
+    |           |     Home: Map Zoom, Overview Map                           (Pressex 1x, Helddown)
+    |     #     |    Minus: Next Weapon
+    |           |
+    |    (1)    |      One: Primary Weapon, Melee Weapon, Team Voice Chat    (Pressed 1x, Pressed 2x, Helddown)
+    |           |
+    |    (2)    |      Two: Secondary Weapon, Gas Mask, NCO Voice Chat       (Pressed 1x, Pressed 2x, Helddown)
+    |           |
+    |  o o o o  |      Joy: Move, Sprint
+    |    Wii    |        C: Reload
+    |___________|        Z: Primary Fire                                     (Pressed 1x. Helddown)
+
 */
 
 // Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
@@ -55,17 +76,17 @@ Else
 Endif
 
 // Button Mapping
-Key.Space            =    Helddown(Wiimote.Up, 150ms)
-Key.F                =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up
+Key.Space            =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up
+Key.F                =    Helddown(Wiimote.Up, 150ms)
+Key.G                =    Helddown(Wiimote.Left, 150ms)
+Key.F3               =    Wiimote.Right
 Key.C                =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down
 Key.Ctrl             =    Helddown(Wiimote.Down, 150ms)
-Key.5                =    Wiimote.Left
-Key.F3               =    Wiimote.Right
 
-Key.Shift            =    Wiimote.A and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 75ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 100ms)
+Key.Shift            =    Wiimote.A and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 75ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 100ms) and not Wiimote.B
 Mouse.RightButton    =    Keepdown(Wiimote.A, 150ms) and not Wiimote.A and Helddown(not Wiimote.B, 250ms)
-Key.E                =    Wiimote.A and Wiimote.B
-Key.Q                =    Helddown(Wiimote.B, 250ms)
+Key.Q                =    Helddown(Wiimote.B, 250ms) and Helddown(not Wiimote.A, 250ms)
+Key.E                =    Helddown(Wiimote.A and Wiimote.B, 150ms)
 
 Mouse.WheelDown      =    Wiimote.Plus
 Key.M                =    Helddown(Wiimote.Home, 250ms)
@@ -80,11 +101,12 @@ Key.2                =    Keepdown(Wiimote.Two, 250ms) and Helddown(not Wiimote.
 Key.4                =    Keepdown(not Wiimote.Two, 250ms) and Helddown(Wiimote.Two, 25ms)
 Key.V                =    Helddown(Wiimote.Two, 150ms)
 
-Key.G                =    Wiimote.Nunchuk.CButton and Wiimote.B
-Key.R                =    Wiimote.Nunchuk.CButton and Helddown(not Wiimote.B, 250ms)
-Mouse.LeftButton     =    Wiimote.Nunchuk.Z
 Key.W                =    Wiimote.Nunchuk.JoyY < -0.15
 Key.S                =    Wiimote.Nunchuk.JoyY > 0.15
 Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65 and Helddown(not Wiimote.A, 500ms) and Helddown(not Wiimote.Home, 250ms)
+
+Key.G                =    Wiimote.Nunchuk.CButton and Wiimote.B
+Key.R                =    Wiimote.Nunchuk.CButton and Helddown(not Wiimote.B, 250ms)
+Mouse.LeftButton     =    Wiimote.Nunchuk.Z
