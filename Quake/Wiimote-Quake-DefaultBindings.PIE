@@ -43,19 +43,19 @@
 
 */
 
-// Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
+//  Set GlovePIE Frame Rate to Wiimote IR Camera Hz, Disable LEDs
 Pie.RealFrameRate = 100Hz
 Wiimote.Leds = 0
 
-// Box Size
+//  Box Size
 var.BoxWidth = 20
 var.BoxHeight = 15
 
-// Sensitivity Adjustments
+//  Sensitivity Adjustments
 var.Sensitivity = 30
 var.AutoTurnSpeed = 80
 
-// Pointer Tracking, Auto-turn, Mouse Output
+//  Pointer Tracking, Auto-turn, Mouse Output
 If Helddown(Wiimote.PointerVisible, 750ms)
 
     var.PointerX = (Wiimote.PointerX - 1/2) * 100
@@ -75,7 +75,7 @@ Else
     var.YMod = 0
 Endif
 
-// Button Mapping
+//  Button Mapping
 Key.1                =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up
 Key.8                =    Helddown(Wiimote.Up, 150ms)
 Key.4                =    Keepdown(Wiimote.Left, 250ms) and not Wiimote.Left
