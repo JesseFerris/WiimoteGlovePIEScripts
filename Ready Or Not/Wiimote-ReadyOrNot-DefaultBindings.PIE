@@ -24,7 +24,7 @@
     | @   _     |       Up: Interact/Yell For Compliance, Melee                                   (Pressed 1xHelddown, Pressed 2x)
     |   _| |_   |     Left: Lean Left, Night Vision                                               (Helddown, Pressed With Nunchuck C)
     |  |_   _|  |    Right: Lean Right, Toggle Laser/Light Attachment                             (Helddown, Pressed With Nunchuck C)
-    |    |_|    |     Down: Fire Select/Check Fire Mode, Reload/Quick Reload/Check Magazine       (Pressed 1x/Helddown, Pressed with Nunchuk C 1x/2x/Helddown)
+    |    |_|    |     Down: Reload/Quick Reload/Check Magazine, Fire Select/Check Fire Mode       (Pressed 1x/2x/Helddown, Pressed 1x/Helddown with Nunchuk C )
     |           |
     |    (A)    |        A: ADS (Aim Down Sights), Toggle Secondary Sight, Toggle Canted Sight    (Helddown, Pressed with Nunchuk C 1x/2x)
     |           |        B: Fire
@@ -82,8 +82,8 @@ Key.Q                =    Helddown(Wiimote.Left,150ms) and not Wiimote.Nunchuk.C
 Key.N                =    (Keepdown(Wiimote.Left, 250ms) and not Wiimote.Left) and Wiimote.Nunchuk.CButton
 Key.E                =    Helddown(Wiimote.Right, 150ms) and not Wiimote.Nunchuk.CButton
 Mouse.XButton2       =    (Keepdown(Wiimote.Right, 250ms) and not Wiimote.Right) and Wiimote.Nunchuk.CButton
-Key.X                =    Wiimote.Down and not Wiimote.Nunchuk.CButton
-Key.R                =    Wiimote.Down and Wiimote.Nunchuk.CButton
+Key.R                =    Wiimote.Down and not Wiimote.Nunchuk.CButton
+Key.X                =    Wiimote.Down and Wiimote.Nunchuk.CButton
 
 Mouse.RightButton    =    Wiimote.A
 Key.P                =    Wiimote.A and Keepdown(Wiimote.Nunchuk.CButton, 250ms) and Helddown(not Wiimote.Nunchuk.CButton, 80ms)
@@ -96,8 +96,10 @@ Mouse.WheelUp        =    Keepdown(Wiimote.Minus, 250ms) and Wiimote.Minus
 
 Key.Tab              =    Wiimote.Home and not Wiimote.Nunchuk.CButton and Helddown(not key.Shift, 500ms)
 Mouse.MiddleButton   =    Helddown(Wiimote.Home and Wiimote.Nunchuk.CButton, 250ms)
+
 If (Wiimote.Home but not Helddown(Wiimote.Home,10ms)) and Wiimote.Nunchuk.CButton then var.Counter += 1
 If (Helddown(Wiimote.Home, 250ms)) or (Helddown(not Wiimote.Home, 500ms) and var.Counter > 0) then var.Counter = 0
+
 Key.1                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 1)
 Key.2                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 2)
 Key.3                =    Helddown(not Wiimote.Home, 250ms) and (var.Counter = 3)
