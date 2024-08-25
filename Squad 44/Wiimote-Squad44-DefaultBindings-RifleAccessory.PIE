@@ -21,25 +21,25 @@
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
     In-Game Settings: Default Bindings.
      ___________
-    | @   _     |           Up: Melee Attack, Bipod/Attach Detach Bayonet, Engine Ignition    (Pressed 1x, Pressed 2x, Helddown)
+    | @   _     |           Up: Jump, Bipod/Attach Detach Bayonet, Melee Attack, Engine Ignition    (Pressed 1x, Pressed 2x, Helddown, Pressed with Wiimote B)
     |   _| |_   |         Left: Lean Left
     |  |_   _|  |        Right: Lean Right
-    |    |_|    |         Down: Change Fire Mode, Reload                                      (Pressed 1x, Helddown)
+    |    |_|    |         Down: Crouch, Prone                                                       (Pressed 1x, Helddown)
     |           |
-    |    (A)    |            A: Aim Sight, Focus, Interact                                    (Pressed 1x, Helddown, Pressed With Nunchuk C)
-    |           |            B: Fire
+    |    (A)    |            A: Aim Sight, Focus, Use                                               (Pressed 1x, Helddown, Pressed With Nunchuk C)
+    |           |            B: Sight Ranging, Interact                                             (Helddown, Pressed with Wiimote A)
     |           |
-    |  -  &  +  |         Plus: Previous Item                                                 (Pressed 1x, Helddown)
-    |           |         Home: Map, Map Zoom, Leader Radial Menu                             (Pressed 1x, Helddown, Pressed With Nunchuck C)
-    |     #     |        Minus: Next Item                                                     (Pressed 1x, Helddown)
+    |  -  &  +  |         Plus: Previous Item                                                       (Pressed 1x, Helddown)
+    |           |         Home: Map, Map Zoom, Leader Radial Menu                                   (Pressed 1x, Helddown, Pressed With Nunchuck C)
+    |     #     |        Minus: Next Item                                                           (Pressed 1x, Helddown)
     |           |
-    |    (1)    |          One: Select To Weapon 1, 3, Local Voice                            (Pressed 1x, Pressed 2x, Helddown)
+    |    (1)    |          One: Select To Weapon 1, 3, Local Voice                                  (Pressed 1x, Pressed 2x, Helddown)
     |           |    One & Two: Bandage, Command Radio
-    |    (2)    |          Two: Select To Weapon 2, 4, Section Radio                          (Pressed 1x, Pressed 2x, Helddown)
+    |    (2)    |          Two: Select To Weapon 2, 4, Section Radio                                (Pressed 1x, Pressed 2x, Helddown)
     |           |
     |  o o o o  |          Joy: Move, Sprint
-    |    Wii    |            C: Jump, Sight Ranging                                           (Pressed 1x, Helddown)
-    |___________|            Z: Crouch, Prone                                                 (Pressed 1x, Helddown)
+    |    Wii    |            C: Change Fire Mode, Reload                                            (Pressed 1x, Helddown)
+    |___________|            Z: Fire                                                                (Pressed 1x, Helddown)
 
 */
 
@@ -76,36 +76,37 @@ Else
 Endif
 
 //  Button Mapping
-Key.CapsLock         =    Keepdown(Wiimote.Up, 250ms) and Helddown(not Wiimote.Up, 100ms)
+Key.Space            =    Keepdown(Wiimote.Up, 250ms) and Helddown(not Wiimote.Up, 100ms)
 Key.C                =    Keepdown(not Wiimote.Up, 250ms) and Helddown(Wiimote.Up, 25ms)
-Key.I                =    Helddown(Wiimote.Up, 250ms)
+Key.CapsLock         =    Helddown(Wiimote.Up, 250ms) and Helddown(not Wiimote.B, 250ms)
+Key.I                =    Helddown(Wiimote.Up, 250ms) and Wiimote.B
 Key.Q                =    Wiimote.Left
 Key.E                =    Wiimote.Right
-Key.R                =    Helddown(Wiimote.Down, 150ms)
-Mouse.MiddleButton   =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down
+Key.Ctrl             =    Keepdown(Wiimote.Down, 250ms) and Helddown(not Wiimote.Down, 100ms)
+Key.Z                =    Helddown(Wiimote.Down, 150ms)
 
 Key.Shift            =    Wiimote.A and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 15ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 15ms)
-Key.F                =    Helddown(Wiimote.A and Wiimote.Nunchuk.CButton, 150ms)
+Key.F                =    Helddown(Wiimote.A and Wiimote.B, 150ms)
 Mouse.RightButton    =    Keepdown(Wiimote.A, 150ms) but not Wiimote.A
-Mouse.LeftButton     =    Wiimote.B
+Key.X                =    Helddown(Wiimote.B, 250ms)
 
-If (Wiimote.A but not Helddown(Wiimote.A,10ms)) and Wiimote.Nunchuk.CButton then var.Counter += 1
+If (Wiimote.A but not Helddown(Wiimote.A,10ms)) and Wiimote.B then var.Counter += 1
 If (Helddown(Wiimote.A, 250ms)) or (Helddown(not Wiimote.A, 500ms) and var.Counter > 0) then var.Counter = 0
 
-Key.F1               =    (var.Counter = 1)  and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 1 time.
-Key.F2               =    (var.Counter = 2)  and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 2 times.
-Key.F3               =    (var.Counter = 3)  and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 3 times.
-Key.F4               =    (var.Counter = 4)  and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 4 times.
-Key.F5               =    (var.Counter = 5)  and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 5 times.
-Key.F6               =    (var.Counter = 6)  and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 6 times.
-Key.F7               =    (var.Counter = 7)  and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 7 times.
-Key.F8               =    (var.Counter = 8)  and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 8 times.
-Key.F9               =    (var.Counter = 9)  and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 9 times.
-Key.F10              =    (var.Counter = 10) and Helddown(not Wiimote.A, 250ms) // Nunchuk C Held and Wiimote A pressed 10 times.
+Key.F1               =    (var.Counter = 1)  and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 1 time.
+Key.F2               =    (var.Counter = 2)  and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 2 times.
+Key.F3               =    (var.Counter = 3)  and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 3 times.
+Key.F4               =    (var.Counter = 4)  and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 4 times.
+Key.F5               =    (var.Counter = 5)  and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 5 times.
+Key.F6               =    (var.Counter = 6)  and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 6 times.
+Key.F7               =    (var.Counter = 7)  and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 7 times.
+Key.F8               =    (var.Counter = 8)  and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 8 times.
+Key.F9               =    (var.Counter = 9)  and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 9 times.
+Key.F10              =    (var.Counter = 10) and Helddown(not Wiimote.A, 250ms) // Wiimote B Held and Wiimote A pressed 10 times.
 
 Mouse.WheelUp        =    Helddown(Wiimote.Plus, 250ms) or (Keepdown(Wiimote.Plus, 150ms) and not Wiimote.Plus)
-Key.T                =    Helddown(Wiimote.Home, 150ms) and Wiimote.Nunchuk.CButton
-Key.N                =    Helddown(Wiimote.Home, 150ms) and not Wiimote.Nunchuk.CButton
+Key.T                =    Helddown(Wiimote.Home, 150ms) and Wiimote.B
+Key.N                =    Helddown(Wiimote.Home, 150ms) and not Wiimote.B
 Key.M                =    Keepdown(Wiimote.Home, 250ms) and Helddown(not Wiimote.Home, 100ms)
 Mouse.WheelDown      =    Helddown(Wiimote.Minus, 250ms) or (Keepdown(Wiimote.Minus, 150ms) and not Wiimote.Minus)
 
@@ -126,7 +127,9 @@ Key.A                =    Wiimote.Nunchuk.JoyX < -0.15
 Key.D                =    Wiimote.Nunchuk.JoyX > 0.15
 Key.Shift            =    Wiimote.Nunchuk.JoyY < -0.65 and not Wiimote.A
 
-Key.X                =    Helddown(Wiimote.Nunchuk.CButton, 250ms)
-Key.Space            =    Keepdown(Wiimote.Nunchuk.CButton, 250ms) and not Wiimote.Nunchuk.CButton
-Key.Ctrl             =    Keepdown(Wiimote.Nunchuk.ZButton, 250ms) and Helddown(not Wiimote.Nunchuk.ZButton, 80ms)
-Key.Z                =    Helddown(Wiimote.Nunchuk.ZButton, 150ms)
+Key.R                =    Helddown(Wiimote.Nunchuk.CButton, 150ms)
+Mouse.MiddleButton   =    Keepdown(Wiimote.Nunchuk.CButton, 250ms) and not Wiimote.Nunchuk.CButton
+Mouse.LeftButton     =    Wiimote.Nunchuk.ZButton
+
+
+
