@@ -21,21 +21,21 @@
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
     In-Game Settings: Default Bindings.
      ___________
-    | @   _     |       Up: Keyboard F
-    |   _| |_   |     Left: Keyboard Q
-    |  |_   _|  |    Right: Keyboard E
-    |    |_|    |     Down: Keyboard R
+    | @   _     |       Up: Drop the Briefcase, Open Contracts Drawer, Taunts              (Pressed 1x, Pressed 2x, Helddown)
+    |   _| |_   |     Left: Last Weapon Used, Spy:Last Disguise, Inspect Target or Item    (Pressed 1x, Pressed 2x, Helddown)
+    |  |_   _|  |    Right: View/Accept, View/Decline, Accept Redirect to Server           (Pressed 1x, Pressed 2x, Helddown)
+    |    |_|    |     Down: Reload Weapon, Use Item in Action Slot, Special Attack         (Pressed 1x, Pressed 2x, Helddown)
     |           |
-    |    (A)    |        A: Mouse Right Button
-    |           |        B: Mouse Left Button
+    |    (A)    |        A: Secondary Attack
+    |           |        B: Primary Attack
     |           |
-    |  -  &  +  |     Plus: Next Weapon, Change Class       (Pressed 1x, Helddown)
-    |           |     Home: Cancel, Escape, Tab             (Pressed 1x, Pressed 2x, Helddown)
-    |     #     |    Minus: Previous Weapon, Change Team    (Pressed 1x, Helddown)
+    |  -  &  +  |     Plus: Next Weapon, Change Class                                      (Pressed 1x, Helddown)
+    |           |     Home: Cancel, Escape, Tab                                            (Pressed 1x, Pressed 2x, Helddown)
+    |     #     |    Minus: Previous Weapon, Change Team                                   (Pressed 1x, Helddown)
     |           |
-    |    (1)    |      One: Weapon Category 1, 3, 5         (Pressed 1x, Pressed 2x, Helddown)
+    |    (1)    |      One: Weapon Category 1, 3, 5                                        (Pressed 1x, Pressed 2x, Helddown)
     |           |
-    |    (2)    |      Two: Weapon Category 2, 4, 6         (Pressed 1x, Pressed 2x, Helddown)
+    |    (2)    |      Two: Weapon Category 2, 4, 6                                        (Pressed 1x, Pressed 2x, Helddown)
     |           |
     |  o o o o  |      Joy: Move
     |    Wii    |        C: Jump

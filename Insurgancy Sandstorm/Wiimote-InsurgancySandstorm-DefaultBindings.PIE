@@ -25,7 +25,7 @@
     | @   _     |           Up: Toggle Underbarrel Upgrade, Toggle Accessory, Melee Attack/Cycle Optics    (Pressed 1x, Pressed 2x, Helddown)
     |   _| |_   |         Left: Cycle Fire Mode, Lean Left                                                 (Pressed 1x, Helddown)
     |  |_   _|  |        Right: Toggle Siderail Upgrade, Lean Right                                        (Pressed 1x, Helddown)
-    |    |_|    |         Down: Reload/Quick Reload/Inspect Ammo                                           (Pressed 1x/2x/held in game)
+    |    |_|    |         Down: Reload/Quick Reload/Inspect Ammo, Use                                      (Pressed 1x/2x/held in game, Helddown)
     |           |
     |    (A)    |            A: Aim Down Sights (Toggle), Focus (Hold)                                     (Pressed 1x, Helddown)
     |           |            B: Fire

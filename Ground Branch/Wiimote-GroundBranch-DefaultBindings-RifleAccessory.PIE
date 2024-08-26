@@ -38,7 +38,7 @@
     |    (2)    |      Two: Secondary Weapon, Equipment, Radio VOIP                (Pressed 1x, Pressed 2x, Helddown)
     |           |
     |  o o o o  |      Joy: Move, Run, Sprint
-    |    Wii    |        C: Reload/Quickreload/Inspect Ammo                        (Pressed 1x/2x/held in game)
+    |    Wii    |        C: Reload/Quickreload/Inspect Ammo, Fire Mode Selector    (Pressed 1x/2x/held in game, Pressed with Wiimote B)
     |___________|        Z: Fire/Throw
 
 */

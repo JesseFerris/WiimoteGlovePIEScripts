@@ -25,7 +25,7 @@
     | @   _     |           Up: Jump, Melee Attack/Cycle Optics, Toggle Siderail Upgrade    (Pressed 1x, Helddown, Pressed with Wiimote B)
     |   _| |_   |         Left: Lean Left                                                   (Pressed 1x, Helddown)
     |  |_   _|  |        Right: Lean Right                                                  (Pressed 1x, Helddown)
-    |    |_|    |         Down: Prone, Crouch, Toggle Underbarrel Upgrade                   (Pressed 1x, Helddown, Pressed with Wiimote B)
+    |    |_|    |         Down: Crouch, Prone, Toggle Underbarrel Upgrade                   (Pressed 1x, Helddown, Pressed with Wiimote B)
     |           |
     |    (A)    |            A: Aim Down Sights (Toggle), Focus (Hold)                      (Pressed 1x, Helddown)
     |           |            B: Use                                                         (Pressed with Wiimote A)
