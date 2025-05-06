@@ -53,7 +53,7 @@ var.BoxHeight = 15
 
 //  Sensitivity Adjustments
 var.Sensitivity = 10
-var.AutoTurnSpeed = 35
+var.AutoTurnSpeed = 42
 
 //  Pointer Tracking, Auto-turn, Mouse Output
 If Helddown(Wiimote.PointerVisible, 750ms)
