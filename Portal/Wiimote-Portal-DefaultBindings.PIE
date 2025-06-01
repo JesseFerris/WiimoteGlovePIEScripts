@@ -56,7 +56,7 @@ var.Sensitivity = 20
 var.AutoTurnSpeed = 35
 
 //  Pointer Tracking, Auto-turn, Mouse Output
-If Helddown(Wiimote.PointerVisible, 750ms)
+If Helddown(Wiimote.PointerVisible, 250ms)
 
     var.PointerX = (Wiimote.PointerX - 1/2) * 100
     var.PointerY = (Wiimote.PointerY - 1/2) * 100
@@ -67,12 +67,13 @@ If Helddown(Wiimote.PointerVisible, 750ms)
     If abs(var.PointerX) > var.BoxWidth then var.ModifyerX += ((abs(var.PointerX) - var.BoxWidth) / var.PointerX) * var.AutoTurnSpeed
     If abs(var.PointerY) > var.BoxHeight then var.ModifyerY += ((abs(var.PointerY) - var.BoxHeight) / var.PointerY) * var.AutoTurnSpeed
 
-    Mouse.DirectInputX += var.ModifyerX
-    Mouse.DirectInputY += var.ModifyerY
+    If Helddown(Wiimote.PointerVisible, 500ms)
 
-Else
-    var.XMod = 0
-    var.YMod = 0
+       Mouse.DirectInputX += var.ModifyerX
+       Mouse.DirectInputY += var.ModifyerY
+
+    EndIf
+
 Endif
 
 //  Button Mapping

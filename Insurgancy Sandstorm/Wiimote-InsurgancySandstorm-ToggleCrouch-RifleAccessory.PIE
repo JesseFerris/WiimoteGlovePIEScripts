@@ -18,9 +18,13 @@
 
 /*
     How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
+
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
-    In-Game Settings: Bind Ctrl to Crouch/Slide (Toggle).
-    Optional: For the best experience bind Alt to Walk (Hold) in-game, then in this script un-comment (remove the // in front of) the Key.Alt line under the Button Mapping section below.
+
+    Game Settings: Bind Ctrl to Crouch/Slide (Toggle).
+
+    Optional: For the best experience bind Alt to Walk (Hold) in game, then in this script un-comment (remove the // in front) of the Key.Alt line under the Button Mapping section below.
+
      ___________
     | @   _     |           Up: Jump, Melee Attack/Cycle Optics, Toggle Siderail Upgrade    (Pressed 1x, Helddown, Pressed with Wiimote B)
     |   _| |_   |         Left: Lean Left                                                   (Pressed 1x, Helddown)
@@ -57,7 +61,7 @@ var.Sensitivity = 15
 var.AutoTurnSpeed = 30
 
 //  Pointer Tracking, Auto-turn, Mouse Output
-If Helddown(Wiimote.PointerVisible, 750ms)
+If Helddown(Wiimote.PointerVisible, 250ms)
 
     var.PointerX = (Wiimote.PointerX - 1/2) * 100
     var.PointerY = (Wiimote.PointerY - 1/2) * 100
@@ -68,12 +72,13 @@ If Helddown(Wiimote.PointerVisible, 750ms)
     If abs(var.PointerX) > var.BoxWidth then var.ModifyerX += ((abs(var.PointerX) - var.BoxWidth) / var.PointerX) * var.AutoTurnSpeed
     If abs(var.PointerY) > var.BoxHeight then var.ModifyerY += ((abs(var.PointerY) - var.BoxHeight) / var.PointerY) * var.AutoTurnSpeed
 
-    Mouse.DirectInputX += var.ModifyerX
-    Mouse.DirectInputY += var.ModifyerY
+    If Helddown(Wiimote.PointerVisible, 500ms)
 
-Else
-    var.XMod = 0
-    var.YMod = 0
+       Mouse.DirectInputX += var.ModifyerX
+       Mouse.DirectInputY += var.ModifyerY
+
+    EndIf
+
 Endif
 
 //  Button Mapping
