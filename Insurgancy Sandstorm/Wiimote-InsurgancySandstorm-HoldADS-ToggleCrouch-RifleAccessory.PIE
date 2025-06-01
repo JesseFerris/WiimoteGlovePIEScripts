@@ -19,7 +19,7 @@
 /*
     How To Use: Connect Wiimote via Bluetooth. Open and run this script with GlovePIE.exe by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
 
-    Description: Emulates Mouse and Keyboard from Wiimote controller input.
+    Description: Emulates Mouse and Keyboard from Wiimote input.
 
     Game Settings: Bind Mouse-Right Button to Aim Down Sights (Hold). Bind Ctrl to Crouch/Slide (Toggle).
 
