@@ -8,7 +8,7 @@ Recommended version GlovePIE-0.42-WithoutEmotiv.
 
 http://sites.google.com/site/carlkenner/glovepie (site not found)
 
-https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file (mirror) (Maintained by Ravbug)
+https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file (mirror) (maintained by Ravbug)
 
 ```
    _____________
