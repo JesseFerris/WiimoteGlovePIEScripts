@@ -74,8 +74,8 @@ If Helddown(Wiimote.PointerVisible, 250ms)
 
     If Helddown(Wiimote.PointerVisible, 500ms)
 
-       Mouse.DirectInputX += var.ModifyerX
-       Mouse.DirectInputY += var.ModifyerY
+        Mouse.DirectInputX += var.ModifyerX
+        Mouse.DirectInputY += var.ModifyerY
 
     EndIf
 
