@@ -71,9 +71,12 @@ If Helddown(Wiimote.PointerVisible, 250ms)
     If abs(var.PointerY) > var.BoxHeight then var.ModifyerY += ((abs(var.PointerY) - var.BoxHeight) / var.PointerY) * var.AutoTurnSpeed
 
     If Helddown(Wiimote.PointerVisible, 500ms)
+
        Mouse.DirectInputX += var.ModifyerX
        Mouse.DirectInputY += var.ModifyerY
+
     EndIf
+
 Endif
 
 //  Button Mapping
