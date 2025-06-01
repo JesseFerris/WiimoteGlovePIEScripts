@@ -17,9 +17,12 @@
 */
 
 /*
-    How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
+    How To Use: Connect Wiimote via Bluetooth. Open and run this script with GlovePIE.exe by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
+
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
-    In-Game Settings: Default Bindings.
+
+    Game Settings: Default Bindings.
+
      ___________
     | @   _     |       Up: Sight Mode                                       (Pressed 1x, Helddown)
     |   _| |_   |     Left: Reload

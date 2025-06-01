@@ -17,9 +17,12 @@
 */
 
 /*
-    How To Use: Connect Wiimote via Bluetooth. Run this script with GlovePIE.exe created by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
+    How To Use: Connect Wiimote via Bluetooth. Open and run this script with GlovePIE.exe by Carl Kenner. (http://sites.google.com/site/carlkenner/glovepie) (https://github.com/GlovePIEPreservation/GlovePIE?tab=readme-ov-file)
+
     Description: Emulates Mouse and Keyboard from Wiimote controller input.
-    In-Game Settings: Default Bindings.
+
+    Game Settings: Default Bindings.
+
      ___________
     | @   _     |       Up: Sight Mode                                       (Pressed 1x, Helddown)
     |   _| |_   |     Left: Reload
@@ -30,7 +33,7 @@
     |           |        B: Primary Fire
     |           |
     |  -  &  +  |     Plus: Previous Weapon
-    |           |     Home: Map Zoom, Overview Map                           (Pressex 1x, Helddown)
+    |           |     Home: Map Zoom, Overview Map                           (Pressed 1x, Helddown)
     |     #     |    Minus: Next Weapon
     |           |
     |    (1)    |      One: Primary Weapon, Melee Weapon, Team Voice Chat    (Pressed 1x, Pressed 2x, Helddown)
