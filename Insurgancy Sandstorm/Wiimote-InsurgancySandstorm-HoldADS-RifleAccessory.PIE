@@ -1,5 +1,5 @@
 ﻿/*
-    Wiimote-InsurgancySandstorm-HoldADS-ToggleCrouch-RifleAccessory.PIE
+    Wiimote-InsurgancySandstorm-ToggleCrouch-RifleAccessory.PIE
     Copyright (C) 2024  Jesse Ferris
 
     This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@
 
     Description: Emulates Mouse and Keyboard from Wiimote input.
 
-    Game Settings: Bind Mouse-Right Button to Aim Down Sights (Hold). Bind Ctrl to Crouch/Slide (Toggle).
+    Game Settings: Bind Aim Down Sights (Hold) to Mouse-Right Button.
 
     Optional: For the best experience bind Alt to Walk (Hold) in game, then in this script un-comment (remove the // in front) of the Key.Alt line under the Button Mapping section below.
 
@@ -31,7 +31,7 @@
     |  |_   _|  |        Right: Lean Right                                                  (Pressed 1x, Helddown)
     |    |_|    |         Down: Prone, Crouch, Toggle Underbarrel Upgrade                   (Pressed 1x, Helddown, Pressed with Wiimote B)
     |           |
-    |    (A)    |            A: Aim Down Sights (Toggle), Focus (Hold)                      (Pressed 1x, Helddown)
+    |    (A)    |            A: Aim Down Sights (Hold), Focus (Hold)                        (Helddown)
     |           |            B: Use                                                         (Pressed with Wiimote A)
     |           |
     |  -  &  +  |         Plus: Select Next Weapon
@@ -87,11 +87,11 @@ Key.H                =    Keepdown(Wiimote.Up, 250ms) and not Wiimote.Up and Wii
 Mouse.MiddleButton   =    Helddown(Wiimote.Up, 150ms) and Helddown(not Wiimote.B, 250ms)
 Key.Q                =    Wiimote.Left
 Key.E                =    Wiimote.Right
-Key.Ctrl             =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down and Helddown(not Wiimote.B, 250ms)
+Key.Z                =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down and Helddown(not Wiimote.B, 250ms)
 Key.G                =    Keepdown(Wiimote.Down, 250ms) and not Wiimote.Down and Wiimote.B
-Key.Z                =    Helddown(Wiimote.Down, 150ms)
+Key.Ctrl             =    Helddown(Wiimote.Down, 150ms)
 
-Key.Shift            =    Helddown(Wiimote.A, 150ms) and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 350ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 350ms)
+Key.Shift            =    Wiimote.A and Helddown(abs(Wiimote.Nunchuk.JoyX) < 0.15, 350ms) and Helddown(abs(Wiimote.Nunchuk.JoyY) < 0.15, 350ms)
 Mouse.RightButton    =    Wiimote.A and Helddown(not Wiimote.B, 250ms)
 Key.F                =    Wiimote.A and Wiimote.B
 
